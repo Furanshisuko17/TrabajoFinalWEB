@@ -71,7 +71,12 @@ nav a {
 
 main {
 
+
 } 
+
+main .main-image {
+    max-width: 100vw;
+}
 
 /* fin main */
 
