@@ -43,25 +43,42 @@ nav .logo {
     /* padding: 10px; */
 }
 
-.logo .title {
-    max-width: 235px;
-    max-height: 42px;
-    transform: translateY(-44%);
-    padding:0px;
-}
-
-nav img {
+.svg-logo-div img {
     transform: scale(0.64) translateY(-28%);
     max-width: var(--logo-max-width);
     max-height: 111px;
 }
 
 
+.logo .title {
+    max-width: 235px;
+    max-height: 42px;
+    transform: translateY(-44%);
+    padding: 0px;
+}
+
+nav .svg-user-div {
+    max-width: 48px;
+    max-height: 48px;
+    display: flex;
+    align-items: center
+}
+
+.svg-user-div img {
+    
+
+}
+
+nav img {
+   
+
+}
+
 nav a {
     text-decoration: none;
     padding: 0px 10px;
     text-align: center;
-    font-size:1.5rem;
+    font-size: 1.5rem;
     color: black;
 }
 
