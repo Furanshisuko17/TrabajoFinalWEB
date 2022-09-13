@@ -311,7 +311,7 @@ ul.slider li:target {
   display: flex;
 }
 
-.contenedor-conciertos {
+.contenedor-sedes {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
