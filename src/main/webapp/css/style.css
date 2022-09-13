@@ -112,17 +112,38 @@ main .main-servicios-container {
     flex-direction: column;
 }
 
+main .servicios-title {
+    font-size: 210%;
+    text-align: center;
+    padding: 15px  0px;
+}
+
 .main-servicios-container .servicios-container {
     min-height: 260px;
-    margin: 20px;
     margin-top: 0px;;
+}
+
+.servicios-container img {
+    width: 100vw;
+    object-fit: cover;
+    object-position: 100% 15%;
+    height: 260px;
+    position: absolute;
+}
+
+.servicios-container h1 {
+    position: absolute;
+    z-index: 100;
 }
 
 .servicios-container .item-wrapper {
     display:flex;
     flex-direction: row;
     justify-content: center;
+    z-index: 101
 }
+
+
 
 .servicios-container .item {
     font-size: 0.9rem;
@@ -133,6 +154,7 @@ main .main-servicios-container {
 }
 .item h2 {
     text-align: center;
+    padding-bottom: 10px;
 }
 .backgym{
     background-image: url("../img/random/gymf.jpg");
