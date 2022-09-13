@@ -105,15 +105,19 @@ main {
 }
 
 main .servicios-title {
+  background-color: #1a293e;
+  color: white;
   font-size: 210%;
   text-align: center;
   padding: 20px 0px 40px;
+  font-family: "El Messiri", sans-serif;
 }
 
 main .main-servicios-container {
   display: flex;
   flex-direction: column;
 }
+
 
 .main-servicios-container .servicios-container {
     min-height: 330px;
@@ -148,6 +152,7 @@ main .main-servicios-container {
                 #fff 0 0px 20px;
 }
 
+
 .servicios-container .item-wrapper {
   display: flex;
   flex-direction: row;
@@ -171,6 +176,7 @@ main .main-servicios-container {
 .item h2 {
   text-align: center;
   padding-bottom: 10px;
+  font-family: "El Messiri", sans-serif;
 }
 
 
