@@ -223,7 +223,6 @@ main .nosotros-fondo{
 
 /* Fin Nosotros */
 
-
 .backgym{
     background-image: url("../img/random/gymf.jpg");
 }
@@ -475,13 +474,13 @@ main .inscribete-wrapper {
 }
 
 .contenedor-inscribete a:hover{
-  background: #e86417;
-  color: #fff;
+  background: white;
+  color: black;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #e7d28a,
+              0 0 25px #e7d28a,
+              0 0 50px #e7d28a,
+              0 0 100px #e7d28a;
 }
 
 .contenedor-inscribete a span{
