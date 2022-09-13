@@ -3,12 +3,14 @@
 
 :root {
     --main-color: #e7d28a;
+    --main-viewport: calc(100vw - 5px);
 }
 
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    
 }
 
 ::-webkit-scrollbar {
@@ -64,7 +66,7 @@ nav .logo {
 
 .svg-logo-div img {
     transform: scale(0.64) translateY(-28%);
-    max-width: var(--logo-max-width);
+    max-width: var(--main-viewport);
     max-height: 111px;
 }
 
@@ -107,27 +109,25 @@ main {
 
 }
 
-main .main-servicios-container {
-    display: flex;
-    flex-direction: column;
-}
-
 main .servicios-title {
     font-size: 210%;
     text-align: center;
     padding: 15px  0px;
 }
 
+main .main-servicios-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .main-servicios-container .servicios-container {
-    min-height: 260px;
+    min-height: 270px;
     margin-top: 0px;;
 }
 
 .servicios-container img {
-    width: 100vw;
+    width: var(--main-viewport);
     object-fit: cover;
-    object-position: 100% 15%;
-    height: 260px;
     position: absolute;
 }
 
@@ -140,10 +140,9 @@ main .servicios-title {
     display:flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 101
+    z-index: 101;
+    padding: 20px 0px;
 }
-
-
 
 .servicios-container .item {
     font-size: 0.9rem;
@@ -178,7 +177,7 @@ footer .pie {
     display: flex;
     align-items: center;
     font-size: 3.2rem;
-
+    overflow: hiddeN;
     padding: 0px;
 }
 
@@ -217,7 +216,7 @@ footer a {
 
 .container {
     margin: auto;
-    width: 100vw;
+    width: var(--main-viewport);
     height: 100vh;
     padding: 0px;
 }
