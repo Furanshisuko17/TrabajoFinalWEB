@@ -107,7 +107,7 @@ main {
 main .servicios-title {
   font-size: 210%;
   text-align: center;
-  padding: 15px 0px;
+  padding: 20px 0px 40px;
 }
 
 main .main-servicios-container {
@@ -121,17 +121,31 @@ main .main-servicios-container {
     display:flex;
 }
 
+.servicios-container:hover img {
+    opacity: 0;
+}
+
+.servicios-container:hover h1 {
+    opacity: 0;
+}
+
 .servicios-container img {
     width: var(--main-viewport);
     object-fit: cover;
     height: 330px;
     position: absolute;
-
-}
-
+    transition: opacity 400ms ease-out 0ms;
+  }
+  
 .servicios-container h1 {
-  position: absolute;
-  z-index: 100;
+    position: absolute;
+    z-index: 100;
+    transition: opacity 400ms ease-out 0ms;
+    margin: 21px 24px;
+    text-shadow:#fff 0 0px 20px,
+                #fff 0 0px 20px,
+                #fff 0 0px 20px,
+                #fff 0 0px 20px;
 }
 
 .servicios-container .item-wrapper {
