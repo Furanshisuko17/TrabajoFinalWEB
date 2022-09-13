@@ -82,9 +82,13 @@ nav .svg-user-div {
     align-items: center;
 }
 
-.svg-user-div img {}
+.svg-user-div img {
 
-nav img {}
+}
+
+nav img {
+
+}
 
 nav a {
     text-decoration: none;
@@ -98,7 +102,38 @@ nav a {
 
 /* main: cuerpo principal */
 
-main {}
+main {
+
+
+}
+
+main .main-servicios-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-servicios-container .servicios-container {
+    min-height: 260px;
+    margin: 20px;
+    margin-top: 0px;;
+}
+
+.servicios-container .item-wrapper {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.servicios-container .item {
+    font-size: 0.9rem;
+    padding-left: 20px;
+    margin:20px;
+    margin-bottom: 0px;
+    max-width: 10vw;
+}
+.item h2 {
+    text-align: center;
+}
 
 /* fin main */
 
