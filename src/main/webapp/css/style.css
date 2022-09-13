@@ -160,7 +160,11 @@ main .main-servicios-container {
 
 /* Inicio Nosotros */
 
-main .nosotros-title {
+main .nosotros-fondo{
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.nosotros-fondo .nosotros-title {
     font-size: 210%;
     text-align: center;
     padding: 15px  0px;
