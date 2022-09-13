@@ -155,6 +155,7 @@ main .main-servicios-container {
   z-index: -1;
   padding: 20px 0px;
   margin: 0px auto;
+  
 }
 
 .servicios-container .item {
@@ -164,6 +165,8 @@ main .main-servicios-container {
   margin-bottom: 0px;
   max-width: 276px;
 }
+
+
 
 .item h2 {
   text-align: center;
@@ -188,6 +191,7 @@ main .nosotros-fondo{
 .nosotros-container img {
     object-fit: contain;
     width: 100%;
+    border-radius: 10px;
 }
 
 .nosotros-container h1 {
@@ -226,6 +230,10 @@ main .nosotros-fondo{
     border-width: 1px;
     border-style: solid;
     border-color: var(--main-color);
+    border-radius: 15px;
+    box-shadow: 0 0 5px #e7d28a,
+                0 0 35px #e7d28a;
+    padding: 10px;
 }
 
 .pie .title {
