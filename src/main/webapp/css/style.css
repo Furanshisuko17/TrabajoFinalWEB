@@ -159,38 +159,59 @@ main .main-servicios-container {
 
 /* Inicio Nosotros */
 
-main .nosotros-title {
+main .nosotros-fondo{
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.nosotros-fondo .nosotros-title {
     font-size: 210%;
     text-align: center;
     padding: 15px  0px;
+    color: lemonchiffon;
 }
 
 
 .nosotros-container img {
     object-fit: contain;
-    height: 150px;
+    width: 100%;
 }
 
 .nosotros-container h1 {
     z-index: 100;
     text-align: center;
+    color: lemonchiffon;
+    text-decoration: underline;
+}
+
+.nosotros-container h2 {
+  z-index: 100;
+  text-align: center;
+  color: lemonchiffon;
+}
+
+.nosotros-container p {
+  z-index: 100;
+  text-align: center;
+  color: lavenderblush;
 }
 
 .nosotros-container .item-wrapper {
     display:flex;
     flex-direction: row;
     justify-content: center;
-    z-index: 101
+    z-index: 101;
 }
 
 .nosotros-container .item {
     display:flex;
     flex-direction: column;
     font-size: 0.9rem;
-    padding-left: 20px;
     margin:20px;
     margin-bottom: 0px;
     max-width: 276px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--main-color);
 }
 
 .pie .title {
