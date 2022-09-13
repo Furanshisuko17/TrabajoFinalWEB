@@ -121,7 +121,7 @@ main .main-servicios-container {
 .servicios-container .item-wrapper {
     display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .servicios-container .item {
