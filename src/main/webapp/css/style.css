@@ -134,6 +134,9 @@ main .main-servicios-container {
 .item h2 {
     text-align: center;
 }
+.backgym{
+    background-image: url("../img/random/gymf.jpg");
+}
 
 /* fin main */
 
@@ -260,3 +263,38 @@ ul.slider li:target {
 
 /* Fin Slider */
 
+/* Sedes */
+.contenedor {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px 0;
+    display: flex;
+}
+
+.contenedor-conciertos{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+	border-radius: 10px;
+	min-height: 200px;
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+    width: 23%;
+}
+
+.card .textos {
+    display: flex;
+	height: 100%;
+    color: greenyellow;
+    flex-direction: column;
+    justify-content:space-between;
+}
