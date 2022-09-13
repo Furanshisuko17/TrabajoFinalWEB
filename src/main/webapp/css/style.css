@@ -119,8 +119,6 @@ main .main-servicios-container {
     min-height: 330px;
     margin-top: 0px;;
     display:flex;
-    align-items: center;
-    margin: 0px auto;
 }
 
 .servicios-container img {
@@ -142,6 +140,7 @@ main .main-servicios-container {
   justify-content: center;
   z-index: -1;
   padding: 20px 0px;
+  margin: 0px auto;
 }
 
 .servicios-container .item {
@@ -390,7 +389,6 @@ main .inscribete-wrapper {
 
 .inscribete-wrapper .contenedor-inscribete{
   margin: 2% 0px 6%;
-  background: linear-gradient(#141e30, #243b55);
   width: 400px;
   padding: 40px;
   background: rgb(0,0,0,.5);
