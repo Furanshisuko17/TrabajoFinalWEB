@@ -843,3 +843,12 @@ main .inscribete-wrapper {
 .btnsedes:hover::after{
     top: 0;
 }
+
+.tablec{
+  align-items: center;
+  text-align: center;
+  font-family: "El Messiri", sans-serif;
+  background-color: wheat;
+  width: 90%;
+  margin-top: 50px;
+}
