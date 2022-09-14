@@ -105,9 +105,12 @@ main {
 }
 
 main .servicios-title {
+  background-color: #1a293e;
+  color: white;
   font-size: 210%;
   text-align: center;
-  padding: 15px 0px;
+  padding: 20px 0px 40px;
+  font-family: "El Messiri", sans-serif;
 }
 
 .titulogrande{
@@ -146,10 +149,19 @@ main .main-servicios-container {
   flex-direction: column;
 }
 
+
 .main-servicios-container .servicios-container {
     min-height: 330px;
     margin-top: 0px;;
     display:flex;
+}
+
+.servicios-container:hover img {
+    opacity: 0;
+}
+
+.servicios-container:hover h1 {
+    opacity: 0;
 }
 
 .servicios-container img {
@@ -157,13 +169,20 @@ main .main-servicios-container {
     object-fit: cover;
     height: 330px;
     position: absolute;
-
-}
-
+    transition: opacity 400ms ease-out 0ms;
+  }
+  
 .servicios-container h1 {
-  position: absolute;
-  z-index: 100;
+    position: absolute;
+    z-index: 100;
+    transition: opacity 400ms ease-out 0ms;
+    margin: 21px 24px;
+    text-shadow:#fff 0 0px 20px,
+                #fff 0 0px 20px,
+                #fff 0 0px 20px,
+                #fff 0 0px 20px;
 }
+
 
 .servicios-container .item-wrapper {
   display: flex;
@@ -172,6 +191,7 @@ main .main-servicios-container {
   z-index: -1;
   padding: 20px 0px;
   margin: 0px auto;
+  
 }
 
 .servicios-container .item {
@@ -182,9 +202,12 @@ main .main-servicios-container {
   max-width: 276px;
 }
 
+
+
 .item h2 {
   text-align: center;
   padding-bottom: 10px;
+  font-family: "El Messiri", sans-serif;
 }
 
 
@@ -205,6 +228,7 @@ main .nosotros-fondo{
 .nosotros-container img {
     object-fit: contain;
     width: 100%;
+    border-radius: 10px;
 }
 
 .nosotros-container h1 {
@@ -243,6 +267,10 @@ main .nosotros-fondo{
     border-width: 1px;
     border-style: solid;
     border-color: var(--main-color);
+    border-radius: 15px;
+    box-shadow: 0 0 5px #e7d28a,
+                0 0 35px #e7d28a;
+    padding: 10px;
 }
 
 .pie .title {
@@ -253,7 +281,6 @@ main .nosotros-fondo{
 }
 
 /* Fin Nosotros */
-
 
 .backgym{
     background-image: url("../img/random/gymf.jpg");
@@ -506,13 +533,13 @@ main .inscribete-wrapper {
 }
 
 .contenedor-inscribete a:hover{
-  background: #e86417;
-  color: #fff;
+  background: white;
+  color: black;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #e7d28a,
+              0 0 25px #e7d28a,
+              0 0 50px #e7d28a,
+              0 0 100px #e7d28a;
 }
 
 .contenedor-inscribete a span{
