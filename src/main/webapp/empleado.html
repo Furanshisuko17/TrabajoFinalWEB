@@ -21,38 +21,36 @@
             <a href="inscribete.html"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
         </nav>
 
-        <main>
-            <center><p class="ingreso-title">INGRESO</p></center>
+        <main class="Empleado">
+            <center style="color: white;">
+                <br><br><br>
+                <p class="ingreso-title">INGRESO</p>
+                <h1>DNI</h1>
+                <input type="number" style="width: 200px; font-size: large; text-align: center;">
+            </center>
             <div class="contenedor-pla">
-              <div class="contenedor-planes">
+              <div class="contenedor-ingreso">
                 <div class="card" style="background-color: lemonchiffon;">
                   <div class="textosp">
-                    <h3 class="titulosedes">Plan Standar</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit deleniti necessitatibus aut pariatur, iusto itaque consectetur vitae, cumque minus, voluptas accusamus a dignissimos rem! Officia alias suscipit esse deleniti perferendis.</p>
-                    <h3 class="preciop">S/ 69.99</h3>
-                    <button class="btnsedes"><span>Unete!</span></button>
+                    <h3 class="tituloingreso">INGRESO</h3>
+                    
+                    <button class="btnsedes"><span>Registrar</span></button>
                   </div>
                 </div>
         
                 <div class="card" style="background-color: wheat;">
                   <div class="textosp">
-                    <h3 class="titulosedes">Plan Pro</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem praesentium quae cumque suscipit pariatur delectus! Quibusdam repellat molestias nemo vel, provident culpa, eius officia voluptate, id nostrum eum distinctio quis?</p>
-                    <h3 class="preciop">S/ 99.99</h3>
-                    <button class="btnsedes"><span>Unete!</span></button>
-                  </div>
-                </div>
-        
-                <div class="card" style="background-color: #5E5545;">
-                  <div class="textosp">
-                    <h3 class="titulosedes">Plan Herculiano</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam sunt non quis rerum deserunt libero eos! Ex velit minima fugiat libero enim, natus, perferendis voluptatem eaque magnam, repellat cum sunt!</p>
-                    <h3 class="preciop">S/ 169.99</h3>
-                    <button class="btnsedes"><span>Unete!</span></button>
+                    <h3 class="tituloingreso">SALIDA</h3>
+                    
+                    <button class="btnsedes"><span>Registrar</span></button>
                   </div>
                 </div>
               </div>
-            </div>
+              <div id="current_date" class="fecha"></p>
+                    <script>
+                        document.getElementById("current_date").innerHTML = Date();
+                    </script>
+                </div>
           </main>
 
         <footer>
