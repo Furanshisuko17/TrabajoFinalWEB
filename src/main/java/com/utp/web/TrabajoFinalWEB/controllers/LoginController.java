@@ -7,7 +7,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.utp.web.TrabajoFinalWEB.models.entity.Persona;
 import com.utp.web.TrabajoFinalWEB.services.PersonaService;
 
 @Controller
@@ -18,18 +17,22 @@ public class LoginController {
 	
 	@GetMapping("/")
 	public String mainPage(Model model) {
-		var personas = personaService.listarPersonas();
-		model.addAttribute("personas", personas);
+		/*var personas = personaService.listarPersonas();
+		model.addAttribute("personas", personas);*/
 		return "index";
 	}
 
 	@GetMapping("/login")
 	public String login() {
-		return "inscribete";
+		return "registros";
 	}
 
+    @GetMapping("/sedes")
+    public String sedes() {
+        return "sedes";
+    }
 
-	@GetMapping("/agregar")
+	/*@GetMapping("/agregar")
     public String agregar(Persona persona){
         return "modificar";
     }
@@ -54,6 +57,6 @@ public class LoginController {
     public String eliminar(Persona persona){
         personaService.eliminar(persona);
         return "redirect:/";
-    }
+    }*/
 
 }
