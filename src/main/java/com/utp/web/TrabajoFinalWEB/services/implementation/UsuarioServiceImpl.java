@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.utp.web.TrabajoFinalWEB.models.dao.UsuarioDao;
-import com.utp.web.TrabajoFinalWEB.models.entity.Usuario;
-
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
-	
+	/*
 	@Autowired
 	private UsuarioDao usuarioDao;
 
@@ -42,6 +39,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 			return usuarioDao.findById(usuario.getIdUsuario()).orElse(null);
 	}
 	
-	
+	*/
 	
 }

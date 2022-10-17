@@ -2,14 +2,11 @@ package com.utp.web.TrabajoFinalWEB.services.implementation;
 
 import java.util.List;
 
-import com.utp.web.TrabajoFinalWEB.models.dao.AlmacenDao;
 import com.utp.web.TrabajoFinalWEB.services.AlmacenService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.utp.web.TrabajoFinalWEB.models.entity.Almacen;
-
 public class AlmacenServiceImpl implements AlmacenService {
-	
+	/*
 	@Autowired
 	private AlmacenDao almacenDao;
 
@@ -35,5 +32,5 @@ public class AlmacenServiceImpl implements AlmacenService {
 	public Almacen encontrarAlmacen(Almacen almacen) {
 		return null;
 	}
-
+*/
 }
