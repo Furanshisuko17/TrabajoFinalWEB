@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Gym Herculiano</title>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="svg-logo-div">
+        <img src="img/Logo.svg" alt="Logo de Herculiano">
+      </div>
+      <div class="title">Herculiano</div>
+    </a>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="sedes.html">Sedes</a>
+    <a href="inscribete.html">
+      <div class="svg-user-div">
+        <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
+      </div>
+    </a>
+  </nav>
+
+  <main>
+
+    <div class="inscribete-wrapper">
+      <div class="contenedor-inscribete">
+        <h2>Inicio de Sesion</h2>
+
+        <form id="registro" method="POST" th:action="@{/login}">
+
+          <div class="usuario">
+            <input type="text" name="username" id="username" required>
+            <label>DNI:</label>
+          </div>
+          <div class="usuario">
+            <input type="password" name="password" id="password" required>
+            <label>Contraseña:</label>
+          </div>
+
+
+          <center><a href="">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+              <input type="submit" value="Login" form="registro"/>
+            </a>
+            <a href="">
+              Registrate
+            </a>
+          </center>
+
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
+    <center>
+      <div class="foot">
+        <div>
+          <h4>Herculiano</h4>
+          <a href="nosotros.html">
+            <p style="color: black;">¿Qui&eacute;nes somos?</p>
+          </a>
+        </div>
+        <div>
+          <h4>Planes</h4>
+          <a href="planes.html">
+            <p style="color: black;">Conoce nuestros planes</p>
+          </a>
+
+        </div>
+        <div>
+          <h4>Siguenos</h4>
+          <center>
+            <table>
+              <tr>
+                <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
+                <td>
+                  <a href="https://www.facebook.com/">
+                    <p style="color: black;">Facebook</p>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
+                </td>
+                <td>
+                  <a href="https://www.instagram.com/">
+                    <p style="color: black;">Instagram</p>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+    </center>
+  </footer>
+</body>
+
+</html>
