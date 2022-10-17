@@ -852,3 +852,63 @@ main .inscribete-wrapper {
   width: 90%;
   margin-top: 50px;
 }
+/* Cada Sedes */
+.fondo_sedes{
+  background-color: #1a293e;
+}
+.contenedor_sedes{
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  margin: auto;
+  padding: 40px 0;
+  padding-top: 5vh;
+
+  display: grid;
+  grid-template-rows: 2fr auto;
+  gap: 20px;
+  /* background-color: #9b9b9b; */
+}
+
+.area_informacion{
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 40px;
+  height: 70vh;
+  /* background-color: #ffb641; */
+}
+.area_imagen{
+  /* background-color: #116399; */
+  padding-left: 8%;
+}
+
+.imagenes_sedes{
+  width: 650px;
+  height: 500px;
+}
+
+.area_texto{
+  padding-top: 10%;
+  height: auto;
+  /* background-color: rgb(227, 41, 41); */
+  font-family: "El Messiri", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+.espacio_boton_sedes{
+  display: grid;
+  grid-template-rows: 0.5fr;
+  gap: 10px;
+  text-align: center;
+  /* background-color: aquamarine; */
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.boton_sedes{
+  text-align: center;
+}
+.horario_sedes{
+  display: flex;
+  gap: 40px;
+}
