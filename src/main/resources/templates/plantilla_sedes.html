@@ -9,16 +9,16 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="logo">
+    <a th:href="@{/}" class="logo">
         <div class="svg-logo-div">
             <img src="img/Logo.svg" alt="Logo de Herculiano">
         </div>
         <div class="title">Herculiano</div>
     </a>
-    <a href="index.html">Inicio</a>
-    <a href="#">Servicios</a>
-    <a href="sedes.html">Sedes</a>
-    <a href="inscribete.html">
+    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/servicios}">Servicios</a>
+    <a th:href="@{/sedes}">Sedes</a>
+    <a th:href="@{/login}">
       <div class="svg-user-div">
           <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
         </div>
@@ -60,13 +60,13 @@
       <div class="foot">
           <div>
               <h4>Herculiano</h4>
-              <a href="nosotros.html">
+              <a th:href="@{/nosotros}">
                   <p style="color: black;">¿Qui&eacute;nes somos?</p>
               </a>
           </div>
           <div>
               <h4>Planes</h4>
-              <a href="planes.html">
+              <a th:href="@{/planes}">
                   <p style="color: black;">Conoce nuestros planes</p>
               </a>
           </div>
