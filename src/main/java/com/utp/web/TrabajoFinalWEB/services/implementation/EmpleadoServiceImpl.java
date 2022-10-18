@@ -14,18 +14,18 @@ import java.util.List;
 public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Autowired
-    private EmpleadoDao empleadosDao;
+    private EmpleadoDao empleadoDao;
 
     @Override
     @Transactional(readOnly = true)
     public List<Empleado> listarEmpleados(){
-        return (List<Empleado>) empleadosDao.findAll();
+        return (List<Empleado>) empleadoDao.findAll();
     }
 
     @Override
     @Transactional
     public void guardar(Empleado empleado) {
-        empleadosDao.save(empleado);
+        empleadoDao.save(empleado);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
     @Override
     @Transactional(readOnly = true)
     public Empleado encontrarUsuario(Empleado empleado) {
-        return empleadosDao.findById(empleado.getIdEmpleado()).orElse(null);
+        return empleadoDao.findById(empleado.getIdEmpleado()).orElse(null);
     }
 
 }
