@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gym Herculiano</title>
+</head>
+
+<body>
+<nav>
+    <a th:href="@{/}" class="logo">
+        <div class="svg-logo-div">
+            <img src="img/Logo.svg" alt="Logo de Herculiano">
+        </div>
+        <div class="title">Herculiano</div>
+    </a>
+    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/servicios}">Servicios</a>
+    <a th:href="@{/sedes}">Sedes</a>
+    <a th:href="@{/login}">
+        <div class="svg-user-div">
+            <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
+        </div>
+    </a>
+</nav>
+
+<main>
+
+    <div class="inscribete-wrapper">
+        <div class="contenedor-inscribete">
+            <h2>Registrate</h2>
+
+            <form id="registro" method="POST" th:action="@{/login}">
+
+                <div class="usuario">
+                    <input type="text" name="dni_cliente" id="dni_cliente" required>
+                    <label>DNI:</label>
+                </div>
+                <div class="usuario">
+                    <input type="text" name="nombre_cliente" id="nombre_cliente" required>
+                    <label>Nombres:</label>
+                </div>
+                <div class="usuario">
+                    <input type="text" name="telefono_cliente" id="telefono_cliente" required>
+                    <label>Telefono:</label>
+                </div>
+                <div class="usuario">
+                    <input type="text" name="sede" id="sede" required>
+                    <label>Sede:</label>
+                </div>
+                <div class="usuario">
+                    <label>Plan:</label> <br>
+                </div>
+                <select name="select">
+                    <option name="plan" value="plan_standar">Plan Standar</option>
+                    <option name="plan" value="plan_pro" selected>Plan Pro</option>
+                    <option name="plan" value="plan_herculiano">Plan Herculiano</option>
+                </select>
+
+                <div class="usuario">
+                    <input type="password" name="password" id="password" required>
+                    <label>Contraseña:</label>
+                </div>
+                    <center>
+                <input type="submit" value="Registrate" form="registro"/>
+                    </center>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
+    <center>
+        <div class="foot">
+            <div>
+                <h4>Herculiano</h4>
+                <a th:href="@{/nosotros}">
+                    <p style="color: black;">¿Qui&eacute;nes somos?</p>
+                </a>
+            </div>
+            <div>
+                <h4>Planes</h4>
+                <a th:href="@{/planes}">
+                    <p style="color: black;">Conoce nuestros planes</p>
+                </a>
+
+            </div>
+            <div>
+                <h4>Siguenos</h4>
+                <center>
+                    <table>
+                        <tr>
+                            <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
+                            <td>
+                                <a href="https://www.facebook.com/">
+                                    <p style="color: black;">Facebook</p>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
+                            </td>
+                            <td>
+                                <a href="https://www.instagram.com/">
+                                    <p style="color: black;">Instagram</p>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </div>
+    </center>
+</footer>
+</body>
+
+</html>

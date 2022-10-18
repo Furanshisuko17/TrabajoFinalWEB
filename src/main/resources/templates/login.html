@@ -36,7 +36,7 @@
         <form id="registro" method="POST" th:action="@{/login}">
 
           <div class="usuario">
-            <input type="text" name="username" id="username" required>
+            <input type="text" name="dni_cliente" id="dni_cliente" required>
             <label>DNI:</label>
           </div>
           <div class="usuario">
@@ -52,7 +52,7 @@
             <span></span>
               <input type="submit" value="Login" form="registro"/>
             </a>
-            <a href="">
+            <a th:href="@{/inscripcion}">
               Registrate
             </a>
           </center>
