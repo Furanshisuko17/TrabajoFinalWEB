@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -25,7 +27,7 @@ public class Inscripcion implements Serializable {
     private Plan plan;
     
     @NotNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false, unique = true, name = "idCliente", referencedColumnName = "idCliente")
     private Cliente cliente;
     
@@ -35,11 +37,12 @@ public class Inscripcion implements Serializable {
     private Sede sede;
     
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "string default 'Activo'")
     private String estado;
     
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, insertable = false, updatable = false)
+    @CreationTimestamp
     private Timestamp fechaInscripcion;
     
     

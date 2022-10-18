@@ -3,7 +3,7 @@ package com.utp.web.TrabajoFinalWEB.models.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
+
 import java.io.Serializable;
 
 @Data
@@ -16,9 +16,6 @@ public class Cliente implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
-    
-    @OneToOne(mappedBy = "cliente")
-    private UsuarioCliente usuarioCliente;
 
     @Column(nullable = false, length = 250)
     private String nombre;
@@ -28,5 +25,8 @@ public class Cliente implements Serializable{
     
     @Column(length = 15)
     private String telefono;
+    
+    @Column(nullable = false, length = 200)
+    private String contrasena;
     
 }

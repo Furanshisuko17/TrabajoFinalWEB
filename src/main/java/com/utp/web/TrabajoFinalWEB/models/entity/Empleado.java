@@ -16,9 +16,10 @@ public class Empleado implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmpleado;
-    
-    @OneToOne(mappedBy = "empleado")
-    private UsuarioEmpleado usuarioEmpleado;
+       
+    @NotNull
+    @Column(nullable = false, length = 8)
+    private String dni;
     
     @NotNull
     @Column(nullable = false)
@@ -31,5 +32,8 @@ public class Empleado implements Serializable {
     @NotNull
     @Column(nullable = false, length = 15)
     private String telefono;
+    
+    @Column(nullable = false, length = 32)
+    private String contrasena;
     
 }
