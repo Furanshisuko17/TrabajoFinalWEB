@@ -3,6 +3,7 @@ package com.utp.web.TrabajoFinalWEB.models.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.List;
 

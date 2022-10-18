@@ -16,6 +16,11 @@ public class Sedes implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSede;
 
+    @OneToOne
+    @JoinColumn(name = "idSede")
+    @MapsId
+    private Inscripcion inscripcion;
+
     @Column(length = 250)
     private String nombreSedes;
 

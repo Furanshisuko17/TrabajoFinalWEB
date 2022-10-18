@@ -1,10 +1,10 @@
-package com.utp.integrador.IntegradorFinal;
+package com.utp.web.TrabajoFinalWEB;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class IntegradorFinalApplicationTests {
+class TrabajoFinalWEBApplicationTests {
 
 	@Test
 	void contextLoads() {

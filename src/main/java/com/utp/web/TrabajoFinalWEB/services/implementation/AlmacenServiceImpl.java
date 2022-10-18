@@ -1,11 +1,6 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
-import java.util.List;
-
-import com.utp.web.TrabajoFinalWEB.services.AlmacenService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-public class AlmacenServiceImpl implements AlmacenService {
+public class AlmacenServiceImpl {
 	/*
 	@Autowired
 	private AlmacenDao almacenDao;

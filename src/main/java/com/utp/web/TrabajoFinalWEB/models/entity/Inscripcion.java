@@ -22,6 +22,9 @@ public class Inscripcion implements Serializable {
     @OneToOne(mappedBy = "inscripcion")
     private Clientes clientes;
 
+    @OneToOne(mappedBy = "inscripcion")
+    private Sedes sedes;
+
     @Column(length = 20)
     private String estado;
 }

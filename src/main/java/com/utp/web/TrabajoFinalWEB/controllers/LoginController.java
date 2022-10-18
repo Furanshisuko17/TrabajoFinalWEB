@@ -12,51 +12,14 @@ import com.utp.web.TrabajoFinalWEB.services.PersonaService;
 @Controller
 public class LoginController {
 	
-	@Autowired
-	private PersonaService personaService;
-	
 	@GetMapping("/")
 	public String mainPage(Model model) {
-		/*var personas = personaService.listarPersonas();
-		model.addAttribute("personas", personas);*/
 		return "index";
 	}
 
 	@GetMapping("/login")
 	public String login() {
-		return "registros";
+		return "inscribete";
 	}
-
-    @GetMapping("/sedes")
-    public String sedes() {
-        return "sedes";
-    }
-
-	/*@GetMapping("/agregar")
-    public String agregar(Persona persona){
-        return "modificar";
-    }
-    
-    @PostMapping("/guardar")
-    public String guardar(Persona persona, Errors errores){
-        if(errores.hasErrors()){
-            return "modificar";
-        }
-        personaService.guardar(persona);
-        return "redirect:/";
-    }
-    
-    @GetMapping("/editar/{idPersona}")
-    public String editar(Persona persona, Model model){
-        persona = personaService.encontrarPersona(persona);
-        model.addAttribute("persona", persona);
-        return "modificar";
-    }
-    
-    @GetMapping("/eliminar")
-    public String eliminar(Persona persona){
-        personaService.eliminar(persona);
-        return "redirect:/";
-    }*/
 
 }

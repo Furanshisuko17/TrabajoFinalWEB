@@ -16,7 +16,7 @@ public class UsuarioEmpleado implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUE;
 
-    @OneToOne(mappedBy = "usuarioempleado")
+    @OneToOne(mappedBy = "usuarioEmpleado")
     private Empleados empleados;
 
 }
