@@ -3,7 +3,10 @@ package com.utp.web.TrabajoFinalWEB.models.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -15,16 +18,29 @@ public class Inscripcion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInscripcion;
-
-    @OneToOne(mappedBy = "inscripcion")
-    private Planes planes;
-
-    @OneToOne(mappedBy = "inscripcion")
-    private Clientes clientes;
-
-    @OneToOne(mappedBy = "inscripcion")
-    private Sedes sedes;
-
-    @Column(length = 20)
+    
+    @NotNull
+    @OneToOne
+    @JoinColumn(nullable = false, unique = true, name = "idPlan", referencedColumnName = "idPlan")
+    private Plan plan;
+    
+    @NotNull
+    @OneToOne
+    @JoinColumn(nullable = false, unique = true, name = "idCliente", referencedColumnName = "idCliente")
+    private Cliente cliente;
+    
+    @NotNull
+    @OneToOne
+    @JoinColumn(nullable = false, unique = true, name = "idSede", referencedColumnName = "idSede")
+    private Sede sede;
+    
+    @NotNull
+    @Column(nullable = false)
     private String estado;
+    
+    @NotNull
+    @Column(nullable = false)
+    private Timestamp fechaInscripcion;
+    
+    
 }

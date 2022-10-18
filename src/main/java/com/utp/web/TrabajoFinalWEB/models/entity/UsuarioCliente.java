@@ -4,19 +4,26 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "usuariocliente")
+@Table(name = "usuario_cliente")
 public class UsuarioCliente implements Serializable {
 
     public static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUC;
-
-    @OneToOne(mappedBy = "usuarioCliente")
-    private Clientes clientes;
+    private Long idUsuarioCliente;
+    
+    @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false, unique = true, name = "idCliente", referencedColumnName = "idCliente")
+    private Cliente cliente;
+    
+    @Column(nullable = false, length = 32)
+    private String contrasena;
 }
