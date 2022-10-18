@@ -21,7 +21,7 @@ public class RegistroServiceImpl implements RegistroService {
     @Override
     @Transactional(readOnly = true)
     public List<Registro> listarRegistros() {
-        return null;
+        return registroDao.findAll();
     }
 
     @Override

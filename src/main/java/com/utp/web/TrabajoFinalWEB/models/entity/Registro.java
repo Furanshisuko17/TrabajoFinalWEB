@@ -20,12 +20,12 @@ public class Registro implements Serializable {
     private Long idRegistro;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(nullable = false, name = "idCliente", referencedColumnName = "idCliente")
     private Cliente cliente;
     
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(nullable = false, name = "idSede", referencedColumnName = "idSede")
     private Sede sede;
     
