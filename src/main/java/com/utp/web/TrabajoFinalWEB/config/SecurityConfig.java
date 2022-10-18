@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/editar/**", "/agregar/**", "/eliminar")
 			        .hasRole("ADMIN")
 			    .antMatchers("/")
-			        .hasAnyRole("USER","ADMIN")
+			        .anonymous()
 			    .and()
 			        .formLogin()
 			        .loginPage("/login")
