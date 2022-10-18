@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,5 +29,8 @@ public class Cliente implements Serializable{
     
     @Column(nullable = false, length = 200)
     private String contrasena;
+
+    @OneToMany(mappedBy = "cliente")
+    List<Registro> registros;
     
 }
