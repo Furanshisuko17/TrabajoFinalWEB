@@ -1026,6 +1026,20 @@ border:2px solid rgba(0,0,0,0.2);
   background: rgb(77, 77, 77);
   color: white;
   }
+  
+  .menubtn3 {
+    width: 90px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(77, 77, 77);
+    color: white;
+  }
 
   .mbtn {
   --color: rgb(219, 219, 219);

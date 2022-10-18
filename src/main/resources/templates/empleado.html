@@ -25,16 +25,21 @@
         <main class="Empleado">
             <center style="color: white;">
                 <br><br><br>
-                <p class="ingreso-title">INGRESO</p>
                 <table style="text-align: center;">
                     <tr>
+                    	<td style="padding-top: 40px;">
+                            <button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
+                        </td>
                         <td>
                             <h1>DNI</h1>
                             <input type="number" style="width: 200px; font-size: large; text-align: center;">
                         </td>
                         <td>
                             <h1>Sede</h1>
-                            <input type="text" style="width: 200px; font-size: large; text-align: center;">
+                            <select style="width: 200px; font-size: large; text-align: center;" form="add" id="acceso" name="acceso">
+                                <option>Administrador</option>
+                                <option>Usuario</option>
+                            </select>
                         </td>
                     </tr>
                 </table>
