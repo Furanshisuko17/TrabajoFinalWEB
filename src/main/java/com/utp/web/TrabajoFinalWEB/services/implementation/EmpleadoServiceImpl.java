@@ -1,6 +1,6 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
-import com.utp.web.TrabajoFinalWEB.models.dao.EmpleadosDao;
+import com.utp.web.TrabajoFinalWEB.models.dao.EmpleadoDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
 import com.utp.web.TrabajoFinalWEB.services.EmpleadoService;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class EmpleadoServiceImpl implements EmpleadoService {
 
     @Autowired
-    private EmpleadosDao empleadosDao;
+    private EmpleadoDao empleadosDao;
 
     @Override
     @Transactional(readOnly = true)
