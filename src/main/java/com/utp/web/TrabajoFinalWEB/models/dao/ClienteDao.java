@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClienteDao extends JpaRepository<Cliente, Long> {
 	
-	List<Cliente> findByRegistros(List<Registro> registros);
+	Cliente findByRegistrosIn(List<Registro> registros);
 		
 }

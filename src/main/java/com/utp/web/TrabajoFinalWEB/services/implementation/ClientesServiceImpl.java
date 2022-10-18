@@ -15,11 +15,12 @@ public class ClientesServiceImpl {
     @Autowired
     private ClienteDao clientesDao;
     
-    @Autowired RegistroDao registroDao;
+    @Autowired 
+    private RegistroDao registroDao;
     
     @Transactional(readOnly = true)
-    private List<Cliente> obtenerRegistros() {
-    	var clientes = clientesDao.findByRegistros(registroDao.findAll());
-    	return clientes;
+    private Cliente obtenerRegistros() {
+    	var cliente = clientesDao.findByRegistrosIn(registroDao.findAll());
+    	return cliente;
     }
 }

@@ -22,28 +22,27 @@ public class Inscripcion implements Serializable {
     private Long idInscripcion;
     
     @NotNull
-    @OneToOne
-    @JoinColumn(nullable = false, unique = true, name = "idPlan", referencedColumnName = "idPlan")
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "idPlan", referencedColumnName = "idPlan")
     private Plan plan;
     
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false, unique = true, name = "idCliente", referencedColumnName = "idCliente")
+    @JoinColumn(nullable = false, name = "idCliente", referencedColumnName = "idCliente")
     private Cliente cliente;
     
     @NotNull
-    @OneToOne
-    @JoinColumn(nullable = false, unique = true, name = "idSede", referencedColumnName = "idSede")
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "idSede", referencedColumnName = "idSede")
     private Sede sede;
     
     @NotNull
-    @Column(nullable = false, columnDefinition = "string default 'Activo'")
+    @Column(nullable = false)
     private String estado;
     
     @NotNull
-    @Column(nullable = false, insertable = false, updatable = false)
-    @CreationTimestamp
+    @Column(nullable = false)
     private Timestamp fechaInscripcion;
-    
+
     
 }

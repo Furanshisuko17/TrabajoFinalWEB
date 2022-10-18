@@ -1,7 +1,11 @@
 package com.utp.web.TrabajoFinalWEB.controllers;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,6 +54,8 @@ public class InscripcionController {
     
     @PostMapping("/inscribirse")
     public String inscribirCliente(Inscripcion inscripcion) {
+    	inscripcion.setEstado("Activo");
+    	inscripcion.setFechaInscripcion(new Timestamp(Instant.now().getNano()));
     	inscripcionDao.save(inscripcion);
     	return "redirect:/";
     }
