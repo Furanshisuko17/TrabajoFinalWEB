@@ -532,13 +532,20 @@ main .inscribete-wrapper {
   transition: .5s;
 }
 
-.contenedor-inscribete .usuario input:focus ~ label,
-.contenedor-inscribete .usuario input:focus ~ label{
-  top: -20px;
+.contenedor-inscribete .usuario input:not(:placeholder-shown) ~ label{
+  top: -17px;
   left: 0;
-  color: aqua;
+  color: #e7d28a;
   font-size: 12px;
 }
+
+.contenedor-inscribete .usuario input:focus ~ label{
+  top: -17px;
+  left: 0;
+  color: white;
+  font-size: 12px;
+}
+
 
 .contenedor-inscribete form button {
   position: relative;
@@ -1040,6 +1047,20 @@ border:2px solid rgba(0,0,0,0.2);
     background: rgb(77, 77, 77);
     color: white;
   }
+
+  .menubtn4 {
+      width: 200px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(77, 77, 77);
+      color: white;
+    }
 
   .mbtn {
   --color: rgb(219, 219, 219);
