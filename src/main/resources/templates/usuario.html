@@ -22,37 +22,28 @@
         </nav>
 
         <main>
-            <center><table border="1" class="tablec">
-              <tr>
-                <td>Entradas y Salidas</td>
-                <td>Sede</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-              <tr>
-                <td>- - -</td>
-                <td>- - -</td>
-              </tr>
-            </table></center>
-            
+            <div class="area_trabajo">
+                <div class="tabla_apartado">
+                    <div class="table-wrapper">
+                        <table class="fl-table">
+                            <thead>
+                            <tr>
+                                <th>Entrada</th>
+                                <th>Salida</th>
+                                <th>Sede</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr th:each="usuario: ${usuarios}" th:id="'row' + ${usuario.idUsuario}">
+                                  <td	th:text="${usuario.entrada}"></td>
+                                  <td th:text="${usuario.salida}"></td>
+                                  <td th:text="${usuario.sedes}"></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
           </main>
 <br><br><br><br><br><br><br><br><br><br><br><br>
         <footer>

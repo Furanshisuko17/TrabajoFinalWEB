@@ -24,45 +24,58 @@
 </nav>
 
 <main>
-  <center><table border="1" class="tablec">
-    <tr>
-      <td>DNI</td>
-      <td>Nombre</td>
-      <td>Entrada</td>
-        <td>Salida</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-        <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-        <td>- - -</td>
-        <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-        <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-        <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-        <td>- - -</td>
-    </tr>
-  </table></center>
-  
+	<div class="area_trabajo">
+	    <div class="formulario_datos_apartado">
+	        <div class="datos_apartado">
+	            <div class="form__group field">
+	                <input type="text" form="add" required placeholder="Nombre" class="form__field" id="nombre" name="nombre">
+	                <label class="form__label" for="name">DNI</label>
+	            </div>
+	            <div class="botones_apartado">
+	              <button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+	            </div>
+	        </div>
+	        
+	        <div class="datos_apartado">
+	            <div class="etiqueta">
+	                <p>Sedes:</p>
+	            </div>
+	            <div class="content-select">
+	                <select class="menubtn2 mbtn" form="add" id="acceso" name="acceso">
+	                    <option>Administrador</option>
+	                    <option>Usuario</option>
+	                </select>
+	            </div>
+	            <div class="botones_apartado">
+	              <button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="tabla_apartado">
+	        <div class="table-wrapper">
+	            <table class="fl-table">
+	                <thead>
+	                <tr>
+	                    <th>DNI</th>
+	                    <th>Nombre</th>
+	                    <th>Entrada</th>
+	                    <th>Salida</th>
+	                    <th>Sede</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                  <tr th:each="usuario: ${usuarios}" th:id="'row' + ${usuario.idUsuario}">
+	                      <td th:text="${usuario.Dni}"></td>
+	                      <td	th:text="${usuario.nombre}"></td>
+	                      <td	th:text="${usuario.entrada}"></td>
+	                      <td th:text="${usuario.salida}"></td>
+	                      <td th:text="${usuario.sedes}"></td>
+	                  </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
 </main>
 <br><br><br><br><br><br><br><br><br><br><br>
 <footer>
