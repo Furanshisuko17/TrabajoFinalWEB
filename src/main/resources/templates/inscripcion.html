@@ -48,26 +48,26 @@
 						<label>Telefono:</label>
 					</div>
 					<div class="usuario">
+						<label>Sede:</label><br><br>
 						<select name="select" th:field="*{sede}">
 							<option th:each="sede : ${sedes}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
-					</select>
-						<label>Sede:</label>
+						</select>
 					</div>
 					<div class="usuario">
-						<label>Plan:</label> <br>
+						<label>Plan:</label> <br><br>
 					</div>
 					<select name="select" th:field="*{plan}">
 						<option name="plan" value="1">Plan Standard</option>
 						<option name="plan" value="2" selected>Plan Pro</option>
 						<option name="plan" value="3">Plan Herculiano</option>
 					</select>
-
+					<br><br>
 					<div class="usuario">
 						<input type="password" th:field="*{cliente.contrasena}" required>
 						<label>Contraseña:</label>
 					</div>
 					<center>
-						<input type="submit" class="menubtn4 mbtn" value="Registrate" form="registro" />
+						<button type="submit" class="menubtn4 mbtn" form="registro">Registrate</button>
 					</center>
 				</form>
 			</div>
