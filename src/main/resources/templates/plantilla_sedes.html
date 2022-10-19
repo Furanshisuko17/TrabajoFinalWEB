@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Lima</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <title th:text="${'Sede ' + sede.nombre}"></title>
 </head>
 <body>
   <nav>
     <a th:href="@{/}" class="logo">
         <div class="svg-logo-div">
-            <img src="img/Logo.svg" alt="Logo de Herculiano">
+            <img src="../img/Logo.svg" alt="Logo de Herculiano">
         </div>
         <div class="title">Herculiano</div>
     </a>
@@ -20,7 +20,7 @@
     <a th:href="@{/sedes}">Sedes</a>
     <a th:href="@{/login}">
       <div class="svg-user-div">
-          <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
+          <img src="../img/Iconos/Usuario.svg" alt="Icono de Usuario">
         </div>
   </a>
 </nav>
@@ -29,12 +29,12 @@
     <div class="contenedor_sedes">
         <div class="area_informacion">
             <div class="area_imagen">
-                <img class="imagenes_sedes" src="img/sedes/sede1.jpg" alt="">
+                <img class="imagenes_sedes" th:src="@{${'../img/sedes/' + sede.imagen}}" alt="">
             </div>
             <div class="area_texto">
-                <h1>LIMA</h1>
+                <h1 th:text="${sede.nombre}">LIMA</h1>
                 <h2>Direccion:</h2>
-                <p>Av. Oscar R. Benavides 669 - Lima, Lima - 15082</p>
+                <p th:text="${sede.direccion}">Av. Oscar R. Benavides 669 - Lima, Lima - 15082</p>
                 <h2>Horarios:</h2>
                 <div class="horario_sedes">
                     <p> Lun a Vie:<br>
@@ -48,14 +48,14 @@
         </div>
         <div class="espacio_boton_sedes">
             <div class="boton_sedes">
-                <a href="planes.html"><button class="btnsedes"><span>Inscribete</span></button></a>
+                <a th:href="@{/inscripcion}"><button class="btnsedes"><span>Inscribete</span></button></a>
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-  <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
+  <center><img src="../img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
   <center>
       <div class="foot">
           <div>

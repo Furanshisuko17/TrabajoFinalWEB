@@ -26,6 +26,6 @@ public class SedesController {
 		sede = sedeService.encontrarSede(sede);
 		model.addAttribute("sede", sede);
 		
-		return "/plantilla_sedes";
+		return "plantilla_sedes";
 	}
 }
