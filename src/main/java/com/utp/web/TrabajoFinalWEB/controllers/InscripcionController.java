@@ -22,6 +22,7 @@ import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
 import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
+import com.utp.web.TrabajoFinalWEB.services.InscripcionService;
 
 @Controller
 public class InscripcionController {
@@ -31,6 +32,9 @@ public class InscripcionController {
 	
 	@Autowired
 	private InscripcionDao inscripcionDao;
+	
+	@Autowired
+	private InscripcionService inscripcionService;
 
     @GetMapping ("/inscripcion")
     public String inscripcionMainPage(WebRequest request, Model model){
@@ -46,16 +50,22 @@ public class InscripcionController {
 //			HttpServletRequest request, Errors errors) {
 //		
 //		try {
+//			Inscripcion insc = inscripcionService.registerNewUserAccount(inscripcion);
+//		} catch(Exception e) {
 //			
-//		} catch()
-//		
+//		}
+//		return new ModelAndView("successRegister", "inscripcion", inscripcion);
 //		
 //	}
     
     @PostMapping("/inscribirse")
     public String inscribirCliente(Inscripcion inscripcion) {
+    	try {
+			Inscripcion insc = inscripcionService.registerNewUserAccount(inscripcion);
+		} catch(Exception e) {
+			
+		}
     	inscripcion.setEstado("Activo");
-    	//inscripcion.setFechaInscripcion(new Timestamp(Instant.now().getNano()));
     	inscripcionDao.save(inscripcion);
     	return "redirect:/";
     }

@@ -36,7 +36,7 @@
         <form id="registro" method="POST" th:action="@{/login}">
 
           <div class="usuario">
-            <input type="text" name="dni_cliente" id="dni_cliente" required>
+            <input type="text" name="username" id="username" required>
             <label>DNI:</label>
           </div>
           <div class="usuario">
@@ -49,7 +49,13 @@
               <p style="color: black;">Registrate</p>
             </a>
           </div>
-
+      
+          <div style="color:white;text-align: center;padding-top:15px" th:if="${param.error}">
+				Usuario o contrase&ntilde;a incorrectos.
+			</div>
+			<div style="color:white;text-align: center;padding-top:15px" class="msg" th:if="${param.logout}">
+				Has cerrado sesi&oacute;n.
+			</div>
         </form>
       </div>
     </div>

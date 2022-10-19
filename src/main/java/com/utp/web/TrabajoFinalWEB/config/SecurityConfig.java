@@ -1,25 +1,25 @@
 package com.utp.web.TrabajoFinalWEB.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.utp.web.TrabajoFinalWEB.services.InscripcionDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	@Autowired
+	private UserDetailsService inscripcionDetailsService;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().
-			withUser("admin")
-				.password("{noop}123")
-				.roles("ADMIN", "USER")
-			.and()
-			.withUser("user")
-				.password("{noop}123")
-				.roles("USER");
+		auth.userDetailsService(inscripcionDetailsService);
 	}
 	
 	@Override
@@ -28,12 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/editar/**", "/agregar/**", "/eliminar")
 			        .hasRole("ADMIN")
 			    .antMatchers("/")
-			        .anonymous()
-			    .and()
-			        .formLogin()
-			        .loginPage("/login")
-			    .and()
-			        .exceptionHandling().accessDeniedPage("/errores/403")
+			        .anonymous();
+
+		http.authorizeRequests()
+		.antMatchers().hasAnyRole("ADMIN","CLIENTE")
+		.antMatchers("/").permitAll().and().formLogin().loginPage("/login");
+		
+		
+//			    .and()
+//			        .exceptionHandling().accessDeniedPage("/errores/403")
 			    ;
 	}
 	
