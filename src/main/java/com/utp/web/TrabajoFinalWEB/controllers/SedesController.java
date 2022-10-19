@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
-import com.utp.web.TrabajoFinalWEB.services.SedeService;
+import com.utp.web.TrabajoFinalWEB.services.implementation.SedeServiceImpl;
 
 @Controller
 public class SedesController {
 	
 	@Autowired
-	private SedeService sedeService;
+	private SedeServiceImpl sedeService;
 	
 	@GetMapping("/sedes")
 	public String sedesMainPage(Model model) {

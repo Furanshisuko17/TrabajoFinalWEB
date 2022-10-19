@@ -23,7 +23,7 @@ import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
 import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
-import com.utp.web.TrabajoFinalWEB.services.InscripcionService;
+import com.utp.web.TrabajoFinalWEB.services.implementation.InscripcionServiceImpl;
 
 @Controller
 public class InscripcionController {
@@ -35,7 +35,7 @@ public class InscripcionController {
 	private InscripcionDao inscripcionDao;
 	
 	@Autowired
-	private InscripcionService inscripcionService;
+	private InscripcionServiceImpl inscripcionService;
 
     @GetMapping ("/inscripcion")
     public String inscripcionMainPage(WebRequest request, Model model){
