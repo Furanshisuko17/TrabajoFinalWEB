@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title|>Portal empleado</title>
+        <title>Portal empleado</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
@@ -15,8 +15,8 @@
                 <div class="title">Herculiano</div>
             </a>
             <a th:href="@{/}">Inicio</a>
-            <a href="empleado.html">Gestión</a>
-            <a href="registros.html">Registros</a>
+            <a th:href="@{/empleado}">Gestión</a>
+            <a th:href="@{/registros}">Registros</a>
             <a th:href="@{/servicios}">Servicios</a>
             <a th:href="@{/sedes}">Sedes</a>
             <a th:href="@{/login}"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
@@ -36,9 +36,8 @@
                         </td>
                         <td>
                             <h1>Sede</h1>
-                            <select style="width: 200px; font-size: large; text-align: center;" form="add" id="acceso" name="acceso">
-                                <option>Administrador</option>
-                                <option>Usuario</option>
+                            <select name="select" th:field="*{sede}">
+                                <option th:each="sede : ${sede}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
                             </select>
                         </td>
                     </tr>

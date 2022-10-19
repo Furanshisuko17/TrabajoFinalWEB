@@ -1,6 +1,5 @@
 package com.utp.web.TrabajoFinalWEB.controllers;
 
-import com.utp.web.TrabajoFinalWEB.services.ClientesService;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
