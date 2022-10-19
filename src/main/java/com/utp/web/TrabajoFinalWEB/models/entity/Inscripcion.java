@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -40,7 +41,7 @@ public class Inscripcion implements Serializable {
     @Column(nullable = false)
     private String estado;
     
-    @NotNull
+    @CreationTimestamp
     @Column(nullable = false)
     private Timestamp fechaInscripcion;
 

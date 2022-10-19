@@ -36,7 +36,7 @@
 				<form id="registro" method="POST" th:object="${inscripcion}" th:action="@{/inscribirse}">
 
 					<div class="usuario">
-						<input type="text" th:field="*{cliente.dni}" required>
+						<input type="text" th:field="*{cliente.dni}" maxlength="8" required>
 						<label>DNI:</label>
 					</div>
 					<div class="usuario">

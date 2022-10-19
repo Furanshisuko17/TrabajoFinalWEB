@@ -55,7 +55,7 @@ public class InscripcionController {
     @PostMapping("/inscribirse")
     public String inscribirCliente(Inscripcion inscripcion) {
     	inscripcion.setEstado("Activo");
-    	inscripcion.setFechaInscripcion(new Timestamp(Instant.now().getNano()));
+    	//inscripcion.setFechaInscripcion(new Timestamp(Instant.now().getNano()));
     	inscripcionDao.save(inscripcion);
     	return "redirect:/";
     }
