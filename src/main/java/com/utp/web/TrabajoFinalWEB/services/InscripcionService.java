@@ -25,7 +25,7 @@ public class InscripcionService {
               + inscripcion.getCliente().getDni());
         }
         inscripcion.setEstado("Activo");
-        
+    	inscripcionDao.save(inscripcion);
         return inscripcion;
         
     }

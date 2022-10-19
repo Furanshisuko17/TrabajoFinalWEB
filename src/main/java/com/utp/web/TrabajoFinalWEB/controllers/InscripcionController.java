@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
@@ -45,28 +46,18 @@ public class InscripcionController {
         return "inscripcion";
     }
     
-//	@PostMapping("/inscripcion")
-//	public ModelAndView inscribirCliente(@ModelAttribute("inscripcion") @Valid Inscripcion inscripcion,
-//			HttpServletRequest request, Errors errors) {
-//		
-//		try {
-//			Inscripcion insc = inscripcionService.registerNewUserAccount(inscripcion);
-//		} catch(Exception e) {
-//			
-//		}
-//		return new ModelAndView("successRegister", "inscripcion", inscripcion);
-//		
-//	}
     
     @PostMapping("/inscribirse")
-    public String inscribirCliente(Inscripcion inscripcion) {
+    public String inscribirCliente(Inscripcion inscripcion, RedirectAttributes redirectAttributes) {
     	try {
 			Inscripcion insc = inscripcionService.registerNewUserAccount(inscripcion);
 		} catch(Exception e) {
+			redirectAttributes.addFlashAttribute("error", "El cliente ya se encuentra registrado.");
+			
+			return "redirect:/inscripcion";
 			
 		}
-    	inscripcion.setEstado("Activo");
-    	inscripcionDao.save(inscripcion);
+    	
     	return "redirect:/";
     }
 }

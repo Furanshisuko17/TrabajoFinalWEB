@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,9 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.ClienteDao;
-import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
-import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 
 
 @Service
@@ -25,9 +22,6 @@ import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 public class InscripcionDetailsService implements UserDetailsService {
 
 
-	@Autowired
-    private InscripcionDao inscripcionDao;
-    
 	@Autowired
 	private ClienteDao clienteDao;
 	
@@ -46,7 +40,7 @@ public class InscripcionDetailsService implements UserDetailsService {
         
 		return new org.springframework.security.core.userdetails.User(cliente.getDni(),
 				("{noop}" + cliente.getContrasena().toLowerCase()), enabled, accountNonExpired, credentialsNonExpired,
-				accountNonLocked, getAuthorities(Arrays.asList("CLIENTE")));
+				accountNonLocked, getAuthorities(Arrays.asList("ROLE_CLIENTE")));
     }
     
     private static List<GrantedAuthority> getAuthorities (List<String> roles) {

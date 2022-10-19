@@ -69,6 +69,10 @@
 					<center>
 						<button type="submit" class="menubtn4 mbtn" form="registro">Registrate</button>
 					</center>
+					
+					<div style="color:white; padding-top:15px;text-align:center" th:if="${error != null}">
+						<p th:text="${error}"></p>
+					</div>
 				</form>
 			</div>
 		</div>
