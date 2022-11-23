@@ -6,34 +6,29 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 @Data
 @Entity
-@Table(name = "empleado")
-public class Empleado implements Serializable {
+@Table(name = "plan")
+public class Plan implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpleado;
-       
-    @NotNull
-    @Column(nullable = false, length = 8)
-    private String dni;
+    private Long idPlan;
     
     @NotNull
     @Column(nullable = false)
     private String nombre;
     
     @NotNull
-    @Column(nullable = false)
-    private String direccion;
+    @Column(nullable = false, length = 500)
+    private String descripcion;
     
     @NotNull
-    @Column(nullable = false, length = 15)
-    private String telefono;
-    
-    @Column(nullable = false, length = 32)
-    private String contrasena;
+    @Column(nullable = false, precision = 12, scale = 2)
+    private BigDecimal precio;
     
 }

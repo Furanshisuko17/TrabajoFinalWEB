@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title|>Portal empleado</title>
+        <title>Portal empleado</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <nav>
-            <a href="index.html" class="logo">
+            <a th:href="@{/}" class="logo">
                 <div class="svg-logo-div">
                     <img src="img/Logo.svg" alt="Logo de Herculiano">
                 </div>
                 <div class="title">Herculiano</div>
             </a>
-            <a href="#">Inicio</a>
-            <a href="empleado.html">Gestión</a>
-            <a href="registros.html">Registros</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="sedes.html">Sedes</a>
-            <a href="inscribete.html"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/empleado}">Gestión</a>
+            <a th:href="@{/registros}">Registros</a>
+            <a th:href="@{/servicios}">Servicios</a>
+            <a th:href="@{/sedes}">Sedes</a>
+            <a th:href="@{/login}"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
         </nav>
 
         <main class="Empleado">
             <center style="color: white;">
                 <br><br><br>
-                <p class="ingreso-title">INGRESO</p>
-                <table style="text-align: center;"">
+                <table style="text-align: center;">
                     <tr>
+                    	<td style="padding-top: 40px;">
+                            <button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
+                        </td>
                         <td>
                             <h1>DNI</h1>
                             <input type="number" style="width: 200px; font-size: large; text-align: center;">
                         </td>
                         <td>
                             <h1>Sede</h1>
-                            <input type="text" style="width: 200px; font-size: large; text-align: center;">
+                            <select name="select" th:field="*{sede}">
+                                <option th:each="sede : ${sede}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
+                            </select>
                         </td>
                     </tr>
                 </table>
@@ -70,13 +74,13 @@
             <div class="foot">
                 <div>
                     <h4>Herculiano</h4>
-                    <a href="nosotros.html">
+                    <a th:href="@{/nosotros}">
                         <p style="color: black;">¿Qui&eacute;nes somos?</p>
                     </a>
                 </div>
                 <div>
                     <h4>Planes</h4>
-                    <a href="planes.html">
+                    <a th:href="@{/planes}">
                         <p style="color: black;">Conoce nuestros planes</p>
                     </a>
 

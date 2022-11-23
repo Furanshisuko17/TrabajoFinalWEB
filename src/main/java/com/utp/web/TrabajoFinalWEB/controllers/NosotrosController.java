@@ -1,14 +1,14 @@
 package com.utp.web.TrabajoFinalWEB.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class NosotrosController {
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
+	@GetMapping ("/nosotros")
+	public String nosotrosMainPage(Model model){
+		return "nosotros";
 	}
-
 }

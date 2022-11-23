@@ -6,20 +6,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
+
 @Data
 @Entity
-@Table(name = "empleado")
-public class Empleado implements Serializable {
+@Table(name = "sede")
+public class Sede implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpleado;
-       
-    @NotNull
-    @Column(nullable = false, length = 8)
-    private String dni;
+    private Long idSede;
     
     @NotNull
     @Column(nullable = false)
@@ -30,10 +27,6 @@ public class Empleado implements Serializable {
     private String direccion;
     
     @NotNull
-    @Column(nullable = false, length = 15)
-    private String telefono;
-    
-    @Column(nullable = false, length = 32)
-    private String contrasena;
-    
+    @Column(nullable = false)
+    private String imagen;
 }

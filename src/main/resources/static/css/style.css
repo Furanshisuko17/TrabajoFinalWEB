@@ -532,21 +532,56 @@ main .inscribete-wrapper {
   transition: .5s;
 }
 
-.contenedor-inscribete .usuario input:focus ~ label,
-.contenedor-inscribete .usuario input:focus ~ label{
-  top: -20px;
+.contenedor-inscribete .usuario input:not(:placeholder-shown) ~ label{
+  top: -17px;
   left: 0;
-  color: aqua;
+  color: #e7d28a;
   font-size: 12px;
 }
+
+.contenedor-inscribete .usuario input:focus ~ label{
+  top: -17px;
+  left: 0;
+  color: white;
+  font-size: 12px;
+}
+
+
+.contenedor-inscribete form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #1e3046;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: white;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  border-style: none;
+}
+
+.contenedor-inscribete button:hover{
+  background: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #e7d28a,
+              0 0 25px #e7d28a,
+              0 0 50px #e7d28a,
+              0 0 100px #e7d28a;
+}
+
 .contenedor-inscribete form a {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: aqua;
+  color: #1e3046;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
+  background-color: white;
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
@@ -563,97 +598,6 @@ main .inscribete-wrapper {
               0 0 100px #e7d28a;
 }
 
-.contenedor-inscribete a span{
-  position: absolute;
-  display: block;
-}
-
-.contenedor-inscribete a span:nth-child(1){
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent,
-   #03e9f4);
-   animation: btn-anim1 1s linear infinite;
-
-}
-
-@keyframes btn-anim1{
-  0%{
-    left: -100%;
-  }
-  50%, 100%{
-    left: 100%;
-
-  }
-}
-
-.contenedor-inscribete a span:nth-child(2){
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent,
-   #03e9f4);
-   animation: btn-anim2 1s linear infinite;
-   animation-delay: .25s;
-
-}
-
-@keyframes btn-anim2{
-  0%{
-    left: -100%;
-  }
-  50%, 100%{
-    left: 100%;
-
-  }
-}
-
-.contenedor-inscribete a span:nth-child(3){
-  right: -100%;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent,
-   #03e9f4);
-   animation: btn-anim3 1s linear infinite;
-   animation-delay: .25s;
-
-}
-
-@keyframes btn-anim3{
-  0%{
-    left: -100%;
-  }
-  50%, 100%{
-    left: 100%;
-
-  }
-}
-
-.contenedor-inscribete a span:nth-child(4){
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(270deg, transparent,
-   #03e9f4);
-   animation: btn-anim4 1s linear infinite;
-   animation-delay: .75s;
-
-}
-
-@keyframes btn-anim4{
-  0%{
-    left: -100%;
-  }
-  50%, 100%{
-    left: 100%;
-
-  }
-}
 
 /* TERMINO DE INSCRIPCION */
 
@@ -912,3 +856,309 @@ main .inscribete-wrapper {
   display: flex;
   gap: 40px;
 }
+
+.btnLogin{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+}
+
+/* Registros usuario y empleado */
+.area_trabajo{
+  width: 90%;
+  max-width: 2000px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 10vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  height: auto;
+  /* background-color: #ffb641; */
+}
+.formulario_datos_apartado{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.datos_apartado{
+  display: flex;
+  gap: 20px;
+}
+/* Etiqueta */
+.etiqueta{
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  position: relative;
+  padding-top: 35px;
+  color: rgb(0, 0, 0);
+}
+/* EndEtiqueta */
+
+/* bton_accion */
+.bton_accion{
+position: relative;
+  padding-top: 3.5vh;
+}
+/* Endbton_accion */
+
+/*field*/
+.form__group {
+  position: relative;
+  padding: 20px 0 0;
+  margin-top: 10px;
+  width: 300px;
+  
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: 0;
+  font-size: 17px;
+  color: rgb(0, 0, 0);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 17px;
+  font-weight: 700;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #000000;
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #566168, #d6d6d6);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #000000;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+/*endfield*/
+/*select*/
+.content-select{
+  max-width: 250px;
+  position: relative;
+  padding-top: 25px;
+}
+
+.content-select select{
+display: inline-block;
+width: 100%;
+cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0; 
+  border: 0;
+border-radius: 0;
+background: #f0f0f0;
+color: #7b7b7b;
+font-size: 1em;
+color: #999;
+font-family: 
+'Quicksand', sans-serif;
+border:2px solid rgba(0,0,0,0.2);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+/*endselect*/
+.tabla_apartado{
+  padding: 0%;
+  height: 53vh;
+  overflow-y: scroll;
+  background-color: rgb(255, 255, 255);
+}
+.espacio_botones_apartado{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  text-align: center;
+  padding-top: 10vh;
+  /* background-color: aquamarine; */
+  height: 60vh;
+}
+.botones_apartado{
+  padding: 5px;
+  padding-top: 25px;
+  text-align: center;
+}
+/*Estilo boton*/
+.menubtn2 {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(77, 77, 77);
+  color: white;
+  }
+  
+  .menubtn3 {
+    width: 90px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(77, 77, 77);
+    color: white;
+  }
+
+  .menubtn4 {
+      width: 200px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(77, 77, 77);
+      color: white;
+    }
+
+  .mbtn {
+  --color: rgb(219, 219, 219);
+  padding: 0.8em 1.7em;
+  background-color:rgba(0, 0, 0, 0.459);
+  border-radius: .3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+ }
+ 
+ .mbtn::before, .mbtn::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease;
+ }
+ 
+ .mbtn::before {
+  top: -1em;
+  left: -1em;
+ }
+ 
+ .mbtn::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+ }
+ 
+ .mbtn:hover::before, .mbtn:hover::after {
+  height: 410px;
+  width: 410px;
+ }
+ 
+ .mbtn:hover {
+  color: black;
+ }
+ 
+ .mbtn:active {
+  filter: brightness(.8);
+ }
+/*EndEstilo boton*/
+
+/* Table Styles */
+
+.table-wrapper{
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.fl-table td, .fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+.fl-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+.fl-table thead th {
+  color: #ffffff;
+  background: #83919b;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #464f58;
+}
+
+.fl-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+/* End Tabla */
+/* EndRegistros usuario y empleado */
