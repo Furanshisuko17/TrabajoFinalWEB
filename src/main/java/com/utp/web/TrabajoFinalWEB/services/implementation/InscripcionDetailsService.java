@@ -21,10 +21,10 @@ import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
 @Transactional
 public class InscripcionDetailsService implements UserDetailsService {
 
-
+	
+	
 	@Autowired
 	private ClienteDao clienteDao;
-	
 		
     public UserDetails loadUserByUsername(String dni) throws UsernameNotFoundException {
         Cliente cliente = clienteDao.findByDni(dni);
@@ -38,9 +38,14 @@ public class InscripcionDetailsService implements UserDetailsService {
         boolean accountNonLocked = true;
         
         
-		return new org.springframework.security.core.userdetails.User(cliente.getDni(),
-				("{noop}" + cliente.getContrasena().toLowerCase()), enabled, accountNonExpired, credentialsNonExpired,
-				accountNonLocked, getAuthorities(Arrays.asList("ROLE_CLIENTE")));
+		return new org.springframework.security.core.userdetails.User(
+				cliente.getDni(),
+				cliente.getContrasena(), 
+				enabled, 
+				accountNonExpired, 
+				credentialsNonExpired,
+				accountNonLocked, 
+				getAuthorities(Arrays.asList("ROLE_CLIENTE")));
     }
     
     private static List<GrantedAuthority> getAuthorities (List<String> roles) {

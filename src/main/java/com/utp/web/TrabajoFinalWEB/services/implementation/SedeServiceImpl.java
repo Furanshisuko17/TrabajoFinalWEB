@@ -13,7 +13,6 @@ import com.utp.web.TrabajoFinalWEB.services.SedeService;
 @Service
 public class SedeServiceImpl implements SedeService {
 	
-	
 	@Autowired
 	private SedeDao sedeDao;
 	
