@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
-lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<nav th:fragment="nav">
@@ -14,12 +13,13 @@ lang="en">
 				<img src="img/Logo.svg" alt="Logo de Herculiano">
 			</div>
 			<div class="title">Herculiano</div>
-		</a> <a href="#">Inicio</a> <a sec:authorize="hasRole('ROLE_CLIENTE')"
-			th:href="@{/usuario}">Usuario</a> <a
-			sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/empleado}">Gestión</a>
+		</a> <a th:href="@{/}">Inicio</a> <a
+			sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/usuario}">Usuario</a>
+		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/empleado}">Gestión</a>
 		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/registros}">Registros</a>
 
 		<a th:href="@{/servicios}">Servicios</a> <a th:href="@{/sedes}">Sedes</a>
+
 		<a sec:authorize="isAnonymous()" th:href="@{/login}">
 			<div class="svg-user-div">
 				<img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
