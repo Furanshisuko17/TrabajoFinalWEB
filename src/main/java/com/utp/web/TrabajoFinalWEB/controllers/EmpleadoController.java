@@ -1,9 +1,7 @@
 package com.utp.web.TrabajoFinalWEB.controllers;
 
-import com.utp.web.TrabajoFinalWEB.models.dao.EmpleadoDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
-import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 import com.utp.web.TrabajoFinalWEB.services.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
