@@ -20,9 +20,10 @@ public class InscripcionServiceImpl implements InscripcionService {
 	@Autowired
 	private ClienteDao clienteDao;
 	
+	//TODO: incorporar verificación de empleado
 	public Inscripcion registerNewUserAccount(Inscripcion inscripcion) throws Exception {
         if (dniExists(inscripcion.getCliente().getDni())) {
-            throw new Exception("There is an account with that email address: "
+            throw new Exception("Ya existe un usuario con el mismo DNI: "
               + inscripcion.getCliente().getDni());
         }
         inscripcion.setEstado("Activo");

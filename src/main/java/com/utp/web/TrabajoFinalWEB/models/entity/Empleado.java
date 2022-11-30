@@ -33,7 +33,7 @@ public class Empleado implements Serializable {
     @Column(nullable = false, length = 15)
     private String telefono;
     
-    @Column(nullable = false, length = 32)
+    @Column(nullable = false, length = 200)
     private String contrasena;
     
 }
