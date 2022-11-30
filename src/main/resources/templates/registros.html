@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<script type='text/javascript' src="js/registros.js"></script>
 <title>Gym Herculiano</title>
 </head>
 <body class="back2gym">
@@ -12,16 +13,22 @@
 
 	<main>
 
+		<form hidden  id="buscador1" th:action="@{/registros}">
+        </form>
+		<form  id="buscador2" th:action="@{/registros}">
+			<input hidden form="buscador2" type="number" id="sed" name="sed" th:value="${sed}">
+        </form>
+
 		<div class="area_trabajo">
 			<div class="formulario_datos_apartado">
 				<div class="datos_apartado">
 					<div class="form__group field">
-						<input type="text" form="add" required placeholder="Nombre"
-							class="form__field" id="nombre" name="nombre"> <label
-							class="form__label" for="name">DNI</label>
+						<input type="text" form="buscador1" required placeholder="Nombre"
+							class="form__field" id="dni" name="dni" th:value="${dni}">
+							<label class="form__label" for="name">DNI</label>
 					</div>
 					<div class="botones_apartado">
-						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+						<button type="submit" form="buscador1" class="menubtn2 mbtn">Buscar</button>
 					</div>
 				</div>
 
@@ -30,13 +37,19 @@
 						<p>Sedes:</p>
 					</div>
 					<div class="content-select">
-						<select name="select">
-							<option th:each="sede : ${sedes}" th:value="${sede.idSede}"
+						<select id="sede" name="sede">
+							<option selected disabled hidden>Elige la Sede</option>
+							<option th:each="sede : ${sedes}" th:selected="${sedeSeleccionada==sede.idSede}" th:value="${sede.idSede}"
 								th:text="${sede.nombre}"></option>
 						</select>
 					</div>
 					<div class="botones_apartado">
-						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+						<button type="submit" form="buscador2" class="menubtn2 mbtn">Buscar</button>
+					</div>
+				</div>
+				<div class="datos_apartado">
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" onclick="location.href='/registros';" >Limpiar</button>
 					</div>
 				</div>
 			</div>
@@ -57,8 +70,8 @@
 								th:id="'row' + ${registro.idRegistro}">
 								<td th:text="${registro.cliente.dni}"></td>
 								<td th:text="${registro.cliente.nombre}"></td>
-								<td th:text="${registro.fechaEntrada}"></td>
-								<td th:text="${registro.fechaSalida}"></td>
+								<td th:text="${registro.fechaEntrada} ?:'Sin registro'"></td>
+								<td th:text="${registro.fechaSalida} ?:'Sin registro'"></td>
 								<td th:text="${registro.sede.nombre}"></td>
 							</tr>
 						</tbody>

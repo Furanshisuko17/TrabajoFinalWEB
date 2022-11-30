@@ -24,6 +24,16 @@ public class RegistroServiceImpl implements RegistroService {
         return registroDao.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public List<Registro> listarporDni(String palabraclave) {
+        return (List<Registro>) registroDao.findByCliente_Dni(palabraclave);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Registro> listarporSede(Long palabraclave) {
+        return (List<Registro>) registroDao.findBySede_idSede(palabraclave);
+    }
+
     @Override
     @Transactional
     public void guardar(Registro registro) {

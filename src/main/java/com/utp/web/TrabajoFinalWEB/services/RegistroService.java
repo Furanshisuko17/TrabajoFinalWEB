@@ -15,4 +15,8 @@ public interface RegistroService {
 
     public Registro encontrarRegistroDNI(Cliente cliente, String dni);
 
+    public List<Registro> listarporDni(String palabraclave);
+
+    public List<Registro> listarporSede(Long palabraclave);
+
 }
