@@ -19,8 +19,8 @@ public class RegistroController {
     public String registrosMainPage(Model model){
         var registros = registroService.listarRegistros();
         model.addAttribute("registros", registros);
-        var sede = sedeDao.findAll();
-        model.addAttribute("sede", sede);
+        var sedes = sedeDao.findAll();
+        model.addAttribute("sedes", sedes);
         return "/registros";
     }
 

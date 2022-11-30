@@ -10,85 +10,74 @@
 <body class="back2gym">
 	<nav th:replace="layout/header_layout :: nav"></nav>
 
-<main>
-  <center><table border="1" class="tablec">
-    <tr>
-      <td>DNI</td>
-      <td>Nombre</td>
-      <td>Entradas y Salidas</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-    </tr>
-    <tr>
-      <td>- - -</td>
-      <td>- - -</td>
-      <td>- - -</td>
-    </tr>
-  </table></center>
-  
-</main>
-<br><br><br><br><br><br><br><br><br><br><br>
-<footer>
-  <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-  <center>
-      <div class="foot">
-          <div>
-              <h4>Herculiano</h4>
-              <a href="nosotros.html">
-                  <p style="color: black;">¿Qui&eacute;nes somos?</p>
-              </a>
-          </div>
-          <div>
-              <h4>Planes</h4>
-              <a href="planes.html">
-                  <p style="color: black;">Conoce nuestros planes</p>
-              </a>
+	<main>
 
-          </div>
-          <div>
-              <h4>S&iacute;guenos</h4>
-              <center>
-                  <table>
-                      <tr>
-                          <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                          <td>
-                              <a href="https://www.facebook.com/">
-                                  <p style="color: black;">Facebook</p>
-                              </a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                          </td>
-                          <td>
-                              <a href="https://www.instagram.com/">
-                                  <p style="color: black;">Instagram</p>
-                              </a>
-                          </td>
-                      </tr>
-                  </table>
-              </center>
-          </div>
-      </div>
-  </center>
-</footer>
+		<div class="area_trabajo">
+			<div class="formulario_datos_apartado">
+				<div class="datos_apartado">
+					<div class="form__group field">
+						<input type="text" form="add" required placeholder="Nombre"
+							class="form__field" id="nombre" name="nombre"> <label
+							class="form__label" for="name">DNI</label>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+					</div>
+				</div>
+
+				<div class="datos_apartado">
+					<div class="etiqueta">
+						<p>Sedes:</p>
+					</div>
+					<div class="content-select">
+						<select name="select">
+							<option th:each="sede : ${sedes}" th:value="${sede.idSede}"
+								th:text="${sede.nombre}"></option>
+						</select>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+					</div>
+				</div>
+			</div>
+			<div class="tabla_apartado">
+				<div class="table-wrapper">
+					<table class="fl-table">
+						<thead>
+							<tr>
+								<th>DNI</th>
+								<th>Nombre</th>
+								<th>Entrada</th>
+								<th>Salida</th>
+								<th>Sede</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="registro: ${registros}"
+								th:id="'row' + ${registro.idRegistro}">
+								<td th:text="${registro.cliente.dni}"></td>
+								<td th:text="${registro.cliente.nombre}"></td>
+								<td th:text="${registro.fechaEntrada}"></td>
+								<td th:text="${registro.fechaSalida}"></td>
+								<td th:text="${registro.sede.nombre}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 </body>
 </html>
