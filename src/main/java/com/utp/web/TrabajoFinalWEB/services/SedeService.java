@@ -2,7 +2,6 @@ package com.utp.web.TrabajoFinalWEB.services;
 
 import java.util.List;
 
-
 import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
 
 public interface SedeService {

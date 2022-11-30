@@ -1,14 +1,23 @@
 package com.utp.web.TrabajoFinalWEB.models.entity;
 
-import lombok.Data;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
+import lombok.Data;
 
 @Data
 @Entity

@@ -1,10 +1,8 @@
 package com.utp.web.TrabajoFinalWEB.models.dao;
 
-import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
-
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
 
 public interface EmpleadoDao extends JpaRepository<Empleado, Long> {
 	

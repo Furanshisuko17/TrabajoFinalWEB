@@ -1,16 +1,16 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
-import com.utp.web.TrabajoFinalWEB.models.dao.RegistroDao;
-import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
-import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
-import com.utp.web.TrabajoFinalWEB.services.RegistroService;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.utp.web.TrabajoFinalWEB.models.dao.RegistroDao;
+import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
+import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
+import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 
 @Service
 public class RegistroServiceImpl implements RegistroService {

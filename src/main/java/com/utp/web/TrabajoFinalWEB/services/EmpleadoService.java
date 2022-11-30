@@ -1,8 +1,8 @@
 package com.utp.web.TrabajoFinalWEB.services;
 
-import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
-
 import java.util.List;
+
+import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
 
 public interface EmpleadoService {
 

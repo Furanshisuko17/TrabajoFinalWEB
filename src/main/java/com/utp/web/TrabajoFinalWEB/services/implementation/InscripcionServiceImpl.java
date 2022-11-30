@@ -3,7 +3,6 @@ package com.utp.web.TrabajoFinalWEB.services.implementation;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.ClienteDao;

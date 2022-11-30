@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.utp.web.TrabajoFinalWEB.models.dao.ClienteDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.EmpleadoDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
