@@ -1,172 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Nuestros servicios</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>Nuestros servicios</title>
 </head>
 <body>
-  <nav>
-    <a th:href="@{/}" class="logo">
-        <div class="svg-logo-div">
-            <img src="img/Logo.svg" alt="Logo de Herculiano">
-        </div>
-        <div class="title">Herculiano</div>
-    </a>
-    <a th:href="@{/}">Inicio</a>
-    <a href="#">Servicios</a>
-    <a th:href="@{/sedes}">Sedes</a>
-    <a th:href="@{/login}">
-      <div class="svg-user-div">
-          <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
-        </div>
-  </a>
-</nav>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
-<main>
-  <h1 class="servicios-title">Disfruta de nuestras variedades de servicios!!!</h1>
+	<main>
+		<h1 class="servicios-title">Disfruta de nuestras variedades de
+			servicios!!!</h1>
 
-  <div class="main-servicios-container">
-    <div class="servicios-container">
-      <h1>Coreograf&iacuteas de baile</h1>
-      <img style="object-position: 100% 15%;" src="img/servicios/baile.jpg" alt="">
-      <div class="item-wrapper">
-        <div class="item">
-          <h2>STEPS</h2>
-          <p>Si lo que buscas es lograr tu figura ideal con una mente sana y saludable te recomendamos nuestras clases de Step, en estas clases gracias al ritmo de la m&uacutesica frente a tu step y con una gran coreograf&iacutea guiada por nuestros profesores especializados, podr&aacutes mejorar tu rendimiento f&iacutesico y cardiovascular de manera f&aacutecil y saludable.</p>
-        </div>
-        <div class="item">
-          <h2>BAILE</h2>
-          <p>Si lo que buscas es salir de la rutina diaria, te recomendamos que ingreses a nuestras clases de baile, dirigidas en la que se realizan ejercicios aer&oacutebicos al ritmo de la mejor m&uacutesica, divirti&eacutendote mientras fortaleces tu coraz&oacuten y liberas estr&eacutes</p>
-        </div>
-        <div class="item">
-          <h2>ZUMBA</h2>
-          <p>Si lo que buscas es quemar calor&iacuteas y tener un impacto en la salud mental, te recomendamos nuestras clases de zumba, este nos ayudara con el trabajo cardiovascular, muscular, flexibilidad y el aumento de energ&iacutea.</p>
-        </div> 
-      </div>
-    </div> 
+		<div class="main-servicios-container">
+			<div class="servicios-container">
+				<h1>Coreograf&iacuteas de baile</h1>
+				<img style="object-position: 100% 15%;"
+					src="img/servicios/baile.jpg" alt="">
+				<div class="item-wrapper">
+					<div class="item">
+						<h2>STEPS</h2>
+						<p>Si lo que buscas es lograr tu figura ideal con una mente
+							sana y saludable te recomendamos nuestras clases de Step, en
+							estas clases gracias al ritmo de la m&uacutesica frente a tu step
+							y con una gran coreograf&iacutea guiada por nuestros profesores
+							especializados, podr&aacutes mejorar tu rendimiento f&iacutesico
+							y cardiovascular de manera f&aacutecil y saludable.</p>
+					</div>
+					<div class="item">
+						<h2>BAILE</h2>
+						<p>Si lo que buscas es salir de la rutina diaria, te
+							recomendamos que ingreses a nuestras clases de baile, dirigidas
+							en la que se realizan ejercicios aer&oacutebicos al ritmo de la
+							mejor m&uacutesica, divirti&eacutendote mientras fortaleces tu
+							coraz&oacuten y liberas estr&eacutes</p>
+					</div>
+					<div class="item">
+						<h2>ZUMBA</h2>
+						<p>Si lo que buscas es quemar calor&iacuteas y tener un
+							impacto en la salud mental, te recomendamos nuestras clases de
+							zumba, este nos ayudara con el trabajo cardiovascular, muscular,
+							flexibilidad y el aumento de energ&iacutea.</p>
+					</div>
+				</div>
+			</div>
 
-    <div class="servicios-container">
-      <h1>Cardiovascular</h1>
-      <img style="object-position: 100% 25%;" src="img/servicios/cardio.jpg" alt="">
-      <div class="item-wrapper">
-        <div class="item">
-          <h2>POWER CARDIO</h2>
-          <p>Si lo que buscas es estimular tu cuerpo y llevarlo al l&iacutemite, te recomendamos nuestras clases de power cardio, en estas clases tendr&aacutes diferentes desaf&iacuteos para tu cuerpo, trabajaras combinaciones de entrenamiento con pesas y entrenamiento aer&oacutebico simple y atl&eacuteticos.</p>
-        </div>
-        <div class="item">
-          <h2>SALA DE CARDIO</h2>
-          <p>Si lo que buscas es fortalecer tu cuerpo, mantenerte activo y llegar cada vez m&aacutes lejos, te recomendamos nuestras clases de sala de cardio, en estas mejoraras y cuidaras de tu condición f&iacutesica en nuestra tranquila sala, donde tendr&aacutes la frescura de la naturaleza al alcance de tu mano.</p>
-        </div>
-        <div class="item">
-          <h2>FUNCIONAL</h2>
-          <p>Si lo que buscas es mejorar la capacidad cardiovascular, te recomendamos nuestras clases de funcional, en esta fortalecer&aacutes los m&uacutesculos y las habilidades psicomotoras como la agilidad, el equilibrio, la coordinaci&oacuten y mejorar la capacidad cardiorrespiratoria.</p>
-        </div>
-      </div>
-    </div>
+			<div class="servicios-container">
+				<h1>Cardiovascular</h1>
+				<img style="object-position: 100% 25%;"
+					src="img/servicios/cardio.jpg" alt="">
+				<div class="item-wrapper">
+					<div class="item">
+						<h2>POWER CARDIO</h2>
+						<p>Si lo que buscas es estimular tu cuerpo y llevarlo al
+							l&iacutemite, te recomendamos nuestras clases de power cardio, en
+							estas clases tendr&aacutes diferentes desaf&iacuteos para tu
+							cuerpo, trabajaras combinaciones de entrenamiento con pesas y
+							entrenamiento aer&oacutebico simple y atl&eacuteticos.</p>
+					</div>
+					<div class="item">
+						<h2>SALA DE CARDIO</h2>
+						<p>Si lo que buscas es fortalecer tu cuerpo, mantenerte activo
+							y llegar cada vez m&aacutes lejos, te recomendamos nuestras
+							clases de sala de cardio, en estas mejoraras y cuidaras de tu
+							condición f&iacutesica en nuestra tranquila sala, donde
+							tendr&aacutes la frescura de la naturaleza al alcance de tu mano.</p>
+					</div>
+					<div class="item">
+						<h2>FUNCIONAL</h2>
+						<p>Si lo que buscas es mejorar la capacidad cardiovascular, te
+							recomendamos nuestras clases de funcional, en esta
+							fortalecer&aacutes los m&uacutesculos y las habilidades
+							psicomotoras como la agilidad, el equilibrio, la
+							coordinaci&oacuten y mejorar la capacidad cardiorrespiratoria.</p>
+					</div>
+				</div>
+			</div>
 
-    <div class="servicios-container">
-      <h1>Tono - Fuerza</h1>
-      <img style="object-position: 100% 50%;" src="img/servicios/fuerza.jpg" alt="">
-      <div class="item-wrapper">
-        <div class="item">
-          <h2>MUSCULACI&OacuteN</h2>
-          <p>Si lo que buscas es alcanzar tus objetivos, en el mejor lugar, donde te sentir&aacutes como tu segunda casa, te recomendamos nuestras clases de musculaci&oacuten, en estas estar&aacutes bajo la supervisi&oacuten y apoyo de entrenadores listos para atenderte y ayudarte a conquistar tus metas f&iacutesicas.</p>
-        </div>
-        <div class="item">
-          <h2>TAE-BO</h2>
-          <p>Si lo que buscas es aumentar tu tono muscular, te recomendamos nuestras clases de TAE-BO, en estas aumentaras la fuerza general localizada en los brazo y abdomen, mejoraras tus &iacutendices de fuerza y flexibilidad.</p>  
-        </div>
-        <div class="item">
-          <h2>LOCALIZADO</h2>
-          <p>Si lo que buscas es tonificar tus piernas, gl&uacuteteos y abdomen, te recomendamos nuestras clases de localizado, en estas podr&aacutes quemar algunos gramitos de grasa, combinado de ejercicios aer&oacutebicos con la tonificaci&oacuten muscular mejorando la flexibilidad, la coordinaci&oacuten al ritmo de la m&uacutesica.</p>
-        </div>
-      </div>
-    </div>
-    <div class="servicios-container">
-      <h1>Cuerpo - Mente</h1>
-      <img style="object-position: 100% 78%;" src="img/servicios/yoga.jpg" alt="">
-      <div class="item-wrapper">
-        <div class="item">
-          <h2>YOGA</h2>
-        <p>Si lo que buscas es liberar tu mente y buscar el mayor bienestar ya sea f&iacutesico, mental y espiritual, te recomendamos nuestras clases de yoga, en estas a trav&eacutes de ejercicios adecuados como la respiraci&oacuten, la meditaci&oacuten y el pensamiento consciente y positivo. Podrás aliviar la tensi&oacuten en el cuerpo conduciendo un profundo sentimiento de relajaci&oacuten y obteniendo beneficios para tu salud.</p>
-        </div>
-        <div class="item">
-          <h2>PILATES</h2>
-          <p>Si lo que buscas es quemar la mayor cantidad de calor&iacuteas, te recomendamos nuestras clases de pilates, en esta realizaras ejercicios multiarticulares y multi musculares, en cada clase orientaras tu cuerpo a mejorar las funciones diarias y a aumentar la calidad de tu vida en cada sesi&oacuten.</p>
-        </div>
-        <div class="item">
-          <h2>SPINNING</h2>
-        <p>Si lo que buscas es adaptar tu mente y tu cuerpo, te recomendamos nuestras clases de spinning, en estas podr&aacutes realizar una clase con alto rendimiento, donde podr&aacutes liberarte con ejercicios aer&oacutebicos sobre una bicicleta, intervalos de intensidad y fortalecimiento de piernas y coraz&oacuten, logrando as&iacute mejorar tu condici&oacuten f&iacutesica a cada paso.</p>
-        </div>
-      </div>
-    </div>
+			<div class="servicios-container">
+				<h1>Tono - Fuerza</h1>
+				<img style="object-position: 100% 50%;"
+					src="img/servicios/fuerza.jpg" alt="">
+				<div class="item-wrapper">
+					<div class="item">
+						<h2>MUSCULACI&OacuteN</h2>
+						<p>Si lo que buscas es alcanzar tus objetivos, en el mejor
+							lugar, donde te sentir&aacutes como tu segunda casa, te
+							recomendamos nuestras clases de musculaci&oacuten, en estas
+							estar&aacutes bajo la supervisi&oacuten y apoyo de entrenadores
+							listos para atenderte y ayudarte a conquistar tus metas
+							f&iacutesicas.</p>
+					</div>
+					<div class="item">
+						<h2>TAE-BO</h2>
+						<p>Si lo que buscas es aumentar tu tono muscular, te
+							recomendamos nuestras clases de TAE-BO, en estas aumentaras la
+							fuerza general localizada en los brazo y abdomen, mejoraras tus
+							&iacutendices de fuerza y flexibilidad.</p>
+					</div>
+					<div class="item">
+						<h2>LOCALIZADO</h2>
+						<p>Si lo que buscas es tonificar tus piernas, gl&uacuteteos y
+							abdomen, te recomendamos nuestras clases de localizado, en estas
+							podr&aacutes quemar algunos gramitos de grasa, combinado de
+							ejercicios aer&oacutebicos con la tonificaci&oacuten muscular
+							mejorando la flexibilidad, la coordinaci&oacuten al ritmo de la
+							m&uacutesica.</p>
+					</div>
+				</div>
+			</div>
+			<div class="servicios-container">
+				<h1>Cuerpo - Mente</h1>
+				<img style="object-position: 100% 78%;" src="img/servicios/yoga.jpg"
+					alt="">
+				<div class="item-wrapper">
+					<div class="item">
+						<h2>YOGA</h2>
+						<p>Si lo que buscas es liberar tu mente y buscar el mayor
+							bienestar ya sea f&iacutesico, mental y espiritual, te
+							recomendamos nuestras clases de yoga, en estas a trav&eacutes de
+							ejercicios adecuados como la respiraci&oacuten, la
+							meditaci&oacuten y el pensamiento consciente y positivo. Podrás
+							aliviar la tensi&oacuten en el cuerpo conduciendo un profundo
+							sentimiento de relajaci&oacuten y obteniendo beneficios para tu
+							salud.</p>
+					</div>
+					<div class="item">
+						<h2>PILATES</h2>
+						<p>Si lo que buscas es quemar la mayor cantidad de
+							calor&iacuteas, te recomendamos nuestras clases de pilates, en
+							esta realizaras ejercicios multiarticulares y multi musculares,
+							en cada clase orientaras tu cuerpo a mejorar las funciones
+							diarias y a aumentar la calidad de tu vida en cada sesi&oacuten.</p>
+					</div>
+					<div class="item">
+						<h2>SPINNING</h2>
+						<p>Si lo que buscas es adaptar tu mente y tu cuerpo, te
+							recomendamos nuestras clases de spinning, en estas podr&aacutes
+							realizar una clase con alto rendimiento, donde podr&aacutes
+							liberarte con ejercicios aer&oacutebicos sobre una bicicleta,
+							intervalos de intensidad y fortalecimiento de piernas y
+							coraz&oacuten, logrando as&iacute mejorar tu condici&oacuten
+							f&iacutesica a cada paso.</p>
+					</div>
+				</div>
+			</div>
 
-    <div class="servicios-container">
-      <h1>Deportes</h1>
-    <img style="object-position: 100% 15%;" src="img/servicios/deportes.jpg" alt="">
-      <div class="item-wrapper">
-        <div class="item">
-          <h2>BOX</h2>
-        <p>Si lo que buscas en practicar un deporte que permita liberar tensiones y estr&eacutes, te recomendamos nuestras clases de box, en estas podr&aacutes practicar este maravilloso deporte que te ayudara a perder peso, ponerte en forma en todos los m&uacutesculos del cuerpo, reducir el estr&eacutes, mejorar la concentraci&oacuten y aumentar la confianza en uno mismo.</p>
-        </div>
-        <div class="item">
-          <h2>CICLISMO</h2>
-          <p>Si lo que buscas es mejorar tu capacidad cardiovascular, te recomendamos nuestras clases de ciclismo, en esta ganaras fuerza en tus cu&acutedriceps y lograras incrementar la flexibilidad de tus piernas, realizando estos ejercicios donde actúan distintos m&uacutesculos de tu pierna así como los isquiotibiales o los gl&uacuteteos.</p>
-        </div>
-      </div>
-    </div>
+			<div class="servicios-container">
+				<h1>Deportes</h1>
+				<img style="object-position: 100% 15%;"
+					src="img/servicios/deportes.jpg" alt="">
+				<div class="item-wrapper">
+					<div class="item">
+						<h2>BOX</h2>
+						<p>Si lo que buscas en practicar un deporte que permita
+							liberar tensiones y estr&eacutes, te recomendamos nuestras clases
+							de box, en estas podr&aacutes practicar este maravilloso deporte
+							que te ayudara a perder peso, ponerte en forma en todos los
+							m&uacutesculos del cuerpo, reducir el estr&eacutes, mejorar la
+							concentraci&oacuten y aumentar la confianza en uno mismo.</p>
+					</div>
+					<div class="item">
+						<h2>CICLISMO</h2>
+						<p>Si lo que buscas es mejorar tu capacidad cardiovascular, te
+							recomendamos nuestras clases de ciclismo, en esta ganaras fuerza
+							en tus cu&acutedriceps y lograras incrementar la flexibilidad de
+							tus piernas, realizando estos ejercicios donde actúan distintos
+							m&uacutesculos de tu pierna así como los isquiotibiales o los
+							gl&uacuteteos.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-  </div>
-</main>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 
-<footer>
-  <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-  <center>
-      <div class="foot">
-          <div>
-              <h4>Herculiano</h4>
-              <a th:href="@{/nosotros}">
-                  <p style="color: black;">¿Qui&eacute;nes somos?</p>
-              </a>
-          </div>
-          <div>
-              <h4>Planes</h4>
-              <a th:href="@{/planes}">
-                  <p style="color: black;">Conoce nuestros planes</p>
-              </a>
 
-          </div>
-          <div>
-              <h4>S&iacute;guenos</h4>
-              <center>
-                  <table>
-                      <tr>
-                          <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                          <td>
-                              <a href="https://www.facebook.com/">
-                                  <p style="color: black;">Facebook</p>
-                              </a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                          </td>
-                          <td>
-                              <a href="https://www.instagram.com/">
-                                  <p style="color: black;">Instagram</p>
-                              </a>
-                          </td>
-                      </tr>
-                  </table>
-              </center>
-          </div>
-      </div>
-  </center>
-</footer>
-
-  
 </body>
 </html>

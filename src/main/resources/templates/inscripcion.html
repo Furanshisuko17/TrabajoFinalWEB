@@ -10,22 +10,7 @@
 </head>
 
 <body>
-	<nav>
-		<a th:href="@{/}" class="logo">
-			<div class="svg-logo-div">
-				<img src="img/Logo.svg" alt="Logo de Herculiano">
-			</div>
-			<div class="title">Herculiano</div>
-		</a> 
-		<a th:href="@{/}">Inicio</a> 
-		<a th:href="@{/servicios}">Servicios</a>
-		<a th:href="@{/sedes}">Sedes</a> 
-		<a th:href="@{/login}">
-			<div class="svg-user-div">
-				<img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
-			</div>
-		</a>
-	</nav>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
 	<main>
 
@@ -33,44 +18,48 @@
 			<div class="contenedor-inscribete">
 				<h2>Registrate</h2>
 
-				<form id="registro" method="POST" th:object="${inscripcion}" th:action="@{/inscribirse}">
+				<form id="registro" method="POST" th:object="${inscripcion}"
+					th:action="@{/inscribirse}">
 
 					<div class="usuario">
-						<input type="text" th:field="*{cliente.dni}" maxlength="8" required>
-						<label>DNI:</label>
+						<input type="text" th:field="*{cliente.dni}" maxlength="8"
+							required> <label>DNI:</label>
 					</div>
 					<div class="usuario">
-						<input  type="text" th:field="*{cliente.nombre}" required> 
+						<input type="text" th:field="*{cliente.nombre}" required>
 						<label>Nombres:</label>
 					</div>
 					<div class="usuario">
-						<input style="margin-bottom: 9px;" type="text" th:field="*{cliente.telefono}" required> 
-						<label>Telefono:</label>
+						<input style="margin-bottom: 9px;" type="text"
+							th:field="*{cliente.telefono}" required> <label>Telefono:</label>
 					</div>
 					<div class="usuario">
-						<label>Sede:</label><br><br>
-						<select name="select" th:field="*{sede}">
-							<option th:each="sede : ${sedes}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
+						<label>Sede:</label><br>
+						<br> <select name="select" th:field="*{sede}">
+							<option th:each="sede : ${sedes}" th:value="${sede.idSede}"
+								th:text="${sede.nombre}"></option>
 						</select>
 					</div>
 					<div class="usuario">
-						<label>Plan:</label> <br><br>
+						<label>Plan:</label> <br>
+						<br>
 					</div>
 					<select name="select" th:field="*{plan}">
 						<option name="plan" value="1">Plan Standard</option>
 						<option name="plan" value="2" selected>Plan Pro</option>
 						<option name="plan" value="3">Plan Herculiano</option>
-					</select>
-					<br><br>
+					</select> <br>
+					<br>
 					<div class="usuario">
-						<input style="margin-bottom: -8px;" type="password" th:field="*{cliente.contrasena}" required>
-						<label>Contraseña:</label>
+						<input style="margin-bottom: -8px;" type="password"
+							th:field="*{cliente.contrasena}" required> <label>Contraseña:</label>
 					</div>
 					<center>
 						<button type="submit" class="menubtn4 mbtn" form="registro">Registrate</button>
 					</center>
-					
-					<div style="color:white; padding-top:15px;text-align:center" th:if="${error != null}">
+
+					<div style="color: white; padding-top: 15px; text-align: center"
+						th:if="${error != null}">
 						<p th:text="${error}"></p>
 					</div>
 				</form>
@@ -78,50 +67,7 @@
 		</div>
 	</main>
 
-	<footer>
-		<center>
-			<img src="img/index/footer.png" alt="Footer de Herculiano"
-				width="250px" height="190px">
-		</center>
-		<br>
-		<center>
-			<div class="foot">
-				<div>
-					<h4>Herculiano</h4>
-					<a th:href="@{/nosotros}">
-						<p style="color: black;">¿Qui&eacute;nes somos?</p>
-					</a>
-				</div>
-				<div>
-					<h4>Planes</h4>
-					<a th:href="@{/planes}">
-						<p style="color: black;">Conoce nuestros planes</p>
-					</a>
-
-				</div>
-				<div>
-					<h4>Siguenos</h4>
-					<center>
-						<table>
-							<tr>
-								<td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-								<td><a href="https://www.facebook.com/">
-										<p style="color: black;">Facebook</p>
-								</a></td>
-							</tr>
-							<tr>
-								<td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-								</td>
-								<td><a href="https://www.instagram.com/">
-										<p style="color: black;">Instagram</p>
-								</a></td>
-							</tr>
-						</table>
-					</center>
-				</div>
-			</div>
-		</center>
-	</footer>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 </body>
 
 </html>

@@ -2,109 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Gym Herculiano</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>Gym Herculiano</title>
 </head>
 
 <body>
-  <nav>
-    <a th:href="@{/}" class="logo">
-      <div class="svg-logo-div">
-        <img src="img/Logo.svg" alt="Logo de Herculiano">
-      </div>
-      <div class="title">Herculiano</div>
-    </a>
-    <a th:href="@{/}">Inicio</a>
-    <a th:href="@{/servicios}">Servicios</a>
-    <a th:href="@{/sedes}">Sedes</a>
-    <a th:href="@{/login}">
-      <div class="svg-user-div">
-        <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
-      </div>
-    </a>
-  </nav>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
-  <main>
+	<main>
 
-    <div class="inscribete-wrapper">
-      <div class="contenedor-inscribete">
-        <h2>Inicio de Sesion</h2>
+		<div class="inscribete-wrapper">
+			<div class="contenedor-inscribete">
+				<h2>Inicio de Sesion</h2>
 
-        <form id="registro" method="POST" th:action="@{/login}">
+				<form id="registro" method="POST" th:action="@{/login}">
 
-          <div class="usuario">
-            <input type="text" name="username" id="username" required>
-            <label>DNI:</label>
-          </div>
-          <div class="usuario">
-            <input type="password" name="password" id="password" required>
-            <label>Contraseña:</label>
-          </div>
-          <div class="btnLogin">
-            <button type="submit" class="menubtn2 mbtn" form="registro">Login</button>
-            <a th:href="@{/inscripcion}">
-              <p style="color: black;">Registrate</p>
-            </a>
-          </div>
-      
-          <div style="color:white;text-align: center;padding-top:15px" th:if="${param.error}">
-				Usuario o contrase&ntilde;a incorrectos.
+					<div class="usuario">
+						<input type="text" name="username" id="username" required>
+						<label>DNI:</label>
+					</div>
+					<div class="usuario">
+						<input type="password" name="password" id="password" required>
+						<label>Contraseña:</label>
+					</div>
+					<div class="btnLogin">
+						<button type="submit" class="menubtn2 mbtn" form="registro">Login</button>
+						<a th:href="@{/inscripcion}">
+							<p style="color: black;">Registrate</p>
+						</a>
+					</div>
+
+					<div style="color: white; text-align: center; padding-top: 15px"
+						th:if="${param.error}">Usuario o contrase&ntilde;a
+						incorrectos.</div>
+					<div style="color: white; text-align: center; padding-top: 15px"
+						class="msg" th:if="${param.logout}">Has cerrado
+						sesi&oacute;n.</div>
+				</form>
 			</div>
-			<div style="color:white;text-align: center;padding-top:15px" class="msg" th:if="${param.logout}">
-				Has cerrado sesi&oacute;n.
-			</div>
-        </form>
-      </div>
-    </div>
-  </main>
+		</div>
+	</main>
 
-  <footer>
-    <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-    <center>
-      <div class="foot">
-        <div>
-          <h4>Herculiano</h4>
-          <a th:href="@{/nosotros}">
-            <p style="color: black;">¿Qui&eacute;nes somos?</p>
-          </a>
-        </div>
-        <div>
-          <h4>Planes</h4>
-          <a th:href="@{/planes}">
-            <p style="color: black;">Conoce nuestros planes</p>
-          </a>
-
-        </div>
-        <div>
-          <h4>Siguenos</h4>
-          <center>
-            <table>
-              <tr>
-                <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                <td>
-                  <a href="https://www.facebook.com/">
-                    <p style="color: black;">Facebook</p>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                </td>
-                <td>
-                  <a href="https://www.instagram.com/">
-                    <p style="color: black;">Instagram</p>
-                  </a>
-                </td>
-              </tr>
-            </table>
-          </center>
-        </div>
-      </div>
-    </center>
-  </footer>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 </body>
 
 </html>

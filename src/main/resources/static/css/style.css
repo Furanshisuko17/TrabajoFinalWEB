@@ -83,7 +83,8 @@ nav .svg-user-div {
   align-items: center;
 }
 
-.svg-user-div img {
+.svg-logout img {	
+  height: 36px;
 }
 
 nav img {

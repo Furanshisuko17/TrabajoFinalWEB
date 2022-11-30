@@ -2,134 +2,89 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>Nuestros planes</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<title>Nuestros planes</title>
 </head>
 
 <body class="back2gym">
-  <nav>
-    <a th:href="@{/}" class="logo">
-      <div class="svg-logo-div">
-        <img src="img/Logo.svg" alt="Logo de Herculiano" />
-      </div>
-      <div class="title">Herculiano</div>
-    </a>
-    <a th:href="@{/}">Inicio</a>
-    <a th:href="@{/servicios}">Servicios</a>
-    <a th:href="@{/sedes}">Sedes</a>
-    <a th:href="@{/login}">
-      <div class="svg-user-div">
-        <img src="img/Iconos/Usuario.svg" alt="Icono de Usuario" />
-      </div>
-    </a>
-  </nav>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
-  <main>
-    <center><p class="planes-title">PLANES</p></center>
-    <h1 class="planes-title2">¡Planes con precio bajo y fácil adhesión!</h1>
-    <div class="contenedor-pla">
-      <div class="contenedor-planes">
-        <div class="card" style="background-color: lemonchiffon;">
-          <div class="textosp">
-            <h2 class="titulosedes">Plan Standar</h2>
-            <h3>Beneficios:</h3>
-            <p>Área de peso libre, peso integrado y cardio</p>
-            <h3>Servicios disponibles:</h3>
-            <p>Tono - Fuerza</p>
-            <p>Cuerpo - Mente</p>
-            <h3 class="preciop">S/ 69.99</h3>
-            <button class="btnsedes"><span>Unete!</span></button>
-          </div>
-        </div>
+	<main>
+		<center>
+			<p class="planes-title">PLANES</p>
+		</center>
+		<h1 class="planes-title2">¡Planes con precio bajo y fácil
+			adhesión!</h1>
+		<div class="contenedor-pla">
+			<div class="contenedor-planes">
+				<div class="card" style="background-color: lemonchiffon;">
+					<div class="textosp">
+						<h2 class="titulosedes">Plan Standar</h2>
+						<h3>Beneficios:</h3>
+						<p>Área de peso libre, peso integrado y cardio</p>
+						<h3>Servicios disponibles:</h3>
+						<p>Tono - Fuerza</p>
+						<p>Cuerpo - Mente</p>
+						<h3 class="preciop">S/ 69.99</h3>
+						<button class="btnsedes">
+							<span>Unete!</span>
+						</button>
+					</div>
+				</div>
 
-        <div class="card" style="background-color: wheat;">
-          <div class="textosp">
-            <h2 class="titulosedes">Plan Pro</h2>
-            <h3>Beneficios:</h3>
-            <p>Área de peso libre, peso integrado, cardio y clases grupales</p>
-            <p>Invitar a un amigo a entrenar hasta 5 veces al mes</p>
-            <h3>Servicios disponibles:</h3>
-            <p>Coreografia de baile</p>
-            <p>Cardiovascular</p>
-            <p>Tono - Fuerza</p>
-            <p>Cuerpo - Mente</p>
-            <h3 class="preciop">S/ 99.99</h3>
-            <button class="btnsedes"><span>Unete!</span></button>
-          </div>
-        </div>
+				<div class="card" style="background-color: wheat;">
+					<div class="textosp">
+						<h2 class="titulosedes">Plan Pro</h2>
+						<h3>Beneficios:</h3>
+						<p>Área de peso libre, peso integrado, cardio y clases
+							grupales</p>
+						<p>Invitar a un amigo a entrenar hasta 5 veces al mes</p>
+						<h3>Servicios disponibles:</h3>
+						<p>Coreografia de baile</p>
+						<p>Cardiovascular</p>
+						<p>Tono - Fuerza</p>
+						<p>Cuerpo - Mente</p>
+						<h3 class="preciop">S/ 99.99</h3>
+						<button class="btnsedes">
+							<span>Unete!</span>
+						</button>
+					</div>
+				</div>
 
-        <div class="card" style="background-color: #5E5545;">
-          <div class="textosp">
-            <h2 class="titulosedes">Plan Herculiano</h2>
-           	<h3>Beneficios:</h3>
-            <p>Área de peso libre, peso integrado, cardio y clases grupales</p>
-            <p>Acceso a todas las áreas del gimnasio</p>
-            <p>Refill de agua</p>
-            <p>Sillones de masaje</p>
-            <p></p>
-            <h3>Servicios disponibles:</h3>
-            <p>Coreografia de baile</p>
-            <p>Cardiovascular</p>
-            <p>Tono - Fuerza</p>
-            <p>Cuerpo - Mente</p>
-            <p>Deportes</p>
-            <h3 class="preciop">S/ 169.99</h3>
-            <button class="btnsedes"><span>Unete!</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+				<div class="card" style="background-color: #5E5545;">
+					<div class="textosp">
+						<h2 class="titulosedes">Plan Herculiano</h2>
+						<h3>Beneficios:</h3>
+						<p>Área de peso libre, peso integrado, cardio y clases
+							grupales</p>
+						<p>Acceso a todas las áreas del gimnasio</p>
+						<p>Refill de agua</p>
+						<p>Sillones de masaje</p>
+						<h3>Servicios disponibles:</h3>
+						<p>Coreografia de baile</p>
+						<p>Cardiovascular</p>
+						<p>Tono - Fuerza</p>
+						<p>Cuerpo - Mente</p>
+						<p>Deportes</p>
+						<h3 class="preciop">S/ 169.99</h3>
+						<button class="btnsedes">
+							<span>Unete!</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-  <br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-  <footer>
-    <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-    <center>
-      <div class="foot">
-        <div>
-          <h4>Herculiano</h4>
-          <a th:href="@{/nosotros}">
-            <p style="color: black;">¿Qui&eacute;nes somos?</p>
-          </a>
-        </div>
-        <div>
-          <h4>Planes</h4>
-          <a href="#">
-            <p style="color: black;">Conoce nuestros planes</p>
-          </a>
-
-        </div>
-        <div>
-          <h4>S&iacute;guenos</h4>
-          <center>
-            <table>
-              <tr>
-                <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                <td>
-                  <a href="https://www.facebook.com/">
-                    <p style="color: black;">Facebook</p>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                </td>
-                <td>
-                  <a href="https://www.instagram.com/">
-                    <p style="color: black;">Instagram</p>
-                  </a>
-                </td>
-              </tr>
-            </table>
-          </center>
-        </div>
-      </div>
-    </center>
-  </footer>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 </body>
 
 </html>

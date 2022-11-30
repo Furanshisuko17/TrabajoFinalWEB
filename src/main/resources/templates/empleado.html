@@ -1,117 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Portal empleado</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <nav>
-            <a th:href="@{/}" class="logo">
-                <div class="svg-logo-div">
-                    <img src="img/Logo.svg" alt="Logo de Herculiano">
-                </div>
-                <div class="title">Herculiano</div>
-            </a>
-            <a th:href="@{/}">Inicio</a>
-            <a th:href="@{/empleado}">Gestión</a>
-            <a th:href="@{/registros}">Registros</a>
-            <a th:href="@{/servicios}">Servicios</a>
-            <a th:href="@{/sedes}">Sedes</a>
-            <a th:href="@{/login}"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
-        </nav>
+<head>
+<title>Portal empleado</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
-        <main class="Empleado">
-            <center style="color: white;">
-                <br><br><br>
-                <table style="text-align: center;">
-                    <tr>
-                    	<td style="padding-top: 40px;">
-                            <button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
-                        </td>
-                        <td>
-                            <h1>DNI</h1>
-                            <input type="number" style="width: 200px; font-size: large; text-align: center;">
-                        </td>
-                        <td>
-                            <h1>Sede</h1>
-                            <select name="select" th:field="*{sede}">
-                                <option th:each="sede : ${sede}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-            </center>
-            <div class="contenedor-pla">
-              <div class="contenedor-ingreso">
-                <div class="card" style="background-color: lemonchiffon;">
-                  <div class="textosp">
-                    <h3 class="tituloingreso">INGRESO</h3>
-                    
-                    <button class="btnsedes"><span>Registrar</span></button>
-                  </div>
-                </div>
-        
-                <div class="card" style="background-color: wheat;">
-                  <div class="textosp">
-                    <h3 class="tituloingreso">SALIDA</h3>
-                    
-                    <button class="btnsedes"><span>Registrar</span></button>
-                  </div>
-                </div>
-              </div>
-              <div id="current_date" class="fecha"></p>
-                    <script>
-                        document.getElementById("current_date").innerHTML = Date();
-                    </script>
-                </div>
-          </main>
+	<main class="Empleado">
+		<center style="color: white;">
+			<br>
+			<br>
+			<br>
+			<table style="text-align: center;">
+				<tr>
+					<td style="padding-top: 40px;">
+						<button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
+					</td>
+					<td>
+						<h1>DNI</h1> <input type="number"
+						style="width: 200px; font-size: large; text-align: center;">
+					</td>
+					<td>
+						<h1>Sede</h1> <select name="select" th:field="*{sede}">
+							<option th:each="sede : ${sede}" th:value="${sede.idSede}"
+								th:text="${sede.nombre}"></option>
+					</select>
+					</td>
+				</tr>
+			</table>
+		</center>
+		<div class="contenedor-pla">
+			<div class="contenedor-ingreso">
+				<div class="card" style="background-color: lemonchiffon;">
+					<div class="textosp">
+						<h3 class="tituloingreso">INGRESO</h3>
 
-        <footer>
-        <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-        <center>
-            <div class="foot">
-                <div>
-                    <h4>Herculiano</h4>
-                    <a th:href="@{/nosotros}">
-                        <p style="color: black;">¿Qui&eacute;nes somos?</p>
-                    </a>
-                </div>
-                <div>
-                    <h4>Planes</h4>
-                    <a th:href="@{/planes}">
-                        <p style="color: black;">Conoce nuestros planes</p>
-                    </a>
+						<button class="btnsedes">
+							<span>Registrar</span>
+						</button>
+					</div>
+				</div>
 
-                </div>
-                <div>
-                    <h4>S&iacute;guenos</h4>
-                    <center>
-                        <table>
-                            <tr>
-                                <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                                <td>
-                                    <a href="https://www.facebook.com/">
-                                        <p style="color: black;">Facebook</p>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                                </td>
-                                <td>
-                                    <a href="https://www.instagram.com/">
-                                        <p style="color: black;">Instagram</p>
-                                    </a>
-                                </td>
-                            </tr>
-                        </table>
-                    </center>
-                </div>
-            </div>
-        </center>
-    </footer>
+				<div class="card" style="background-color: wheat;">
+					<div class="textosp">
+						<h3 class="tituloingreso">SALIDA</h3>
 
-    </body>
+						<button class="btnsedes">
+							<span>Registrar</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="current_date" class="fecha">
+				</p>
+				<script>
+					document.getElementById("current_date").innerHTML = Date();
+				</script>
+			</div>
+	</main>
+
+	<footer th:replace="layout/footer_layout :: footer"></footer>
+
+</body>
 </html>

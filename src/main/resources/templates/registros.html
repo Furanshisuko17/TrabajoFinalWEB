@@ -1,126 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Gym Herculiano</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>Gym Herculiano</title>
 </head>
 <body class="back2gym">
-  <nav>
-    <a th:href="@{/}" class="logo">
-        <div class="svg-logo-div">
-            <img src="img/Logo.svg" alt="Logo de Herculiano">
-        </div>
-        <div class="title">Herculiano</div>
-    </a>
-    <a th:href="@{/}">Inicio</a>
-    <a th:href="@{/empleado}">Gestión</a>
-    <a th:href="@{/registros}">Registros</a>
-    <a th:href="@{/servicios}">Servicios</a>
-    <a th:href="@{/sedes}">Sedes</a>
-    <a th:href="@{/login}"><img src="img/Iconos/Usuario.svg" alt="Icono de Usuario"></a>
-</nav>
+	<nav th:replace="layout/header_layout :: nav"></nav>
 
-<main>
-	<div class="area_trabajo">
-	    <div class="formulario_datos_apartado">
-	        <div class="datos_apartado">
-	            <div class="form__group field">
-	                <input type="text" form="add" required placeholder="Nombre" class="form__field" id="nombre" name="nombre">
-	                <label class="form__label" for="name">DNI</label>
-	            </div>
-	            <div class="botones_apartado">
-	              <button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
-	            </div>
-	        </div>
-	        
-	        <div class="datos_apartado">
-	            <div class="etiqueta">
-	                <p>Sedes:</p>
-	            </div>
-	            <div class="content-select">
-	                <select class="menubtn2 mbtn" form="add" id="acceso" name="acceso">
-	                    <option>Administrador</option>
-	                    <option>Usuario</option>
-	                </select>
-	            </div>
-	            <div class="botones_apartado">
-	              <button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
-	            </div>
-	        </div>
-	    </div>
-	    <div class="tabla_apartado">
-	        <div class="table-wrapper">
-	            <table class="fl-table">
-	                <thead>
-	                <tr>
-	                    <th>DNI</th>
-	                    <th>Nombre</th>
-	                    <th>Entrada</th>
-	                    <th>Salida</th>
-	                    <th>Sede</th>
-	                </tr>
-	                </thead>
-	                <tbody>
-	                  <tr th:each="registro: ${registros}" th:id="'row' + ${registro.idRegistro}">
-	                      <td th:text="${registro.cliente.dni}"></td>
-                          <td th:text="${registro.cliente.nombre}"></td>
-	                      <td	th:text="${registro.fechaEntrada}"></td>
-	                      <td	th:text="${registro.fechaSalida}"></td>
-	                      <td th:text="${registro.sede.nombre}"></td>
-	                  </tr>
-	                </tbody>
-	            </table>
-	        </div>
-	    </div>
-	</div>
-</main>
-<br><br><br><br><br><br><br><br><br><br><br>
-<footer>
-  <center><img src="img/index/footer.png" alt="Footer de Herculiano" width="250px" height="190px"></center><br>
-  <center>
-      <div class="foot">
-          <div>
-              <h4>Herculiano</h4>
-              <a th:href="@{/nosotros}">
-                  <p style="color: black;">¿Qui&eacute;nes somos?</p>
-              </a>
-          </div>
-          <div>
-              <h4>Planes</h4>
-              <a th:href="@{/planes}">
-                  <p style="color: black;">Conoce nuestros planes</p>
-              </a>
+	<main>
+		<div class="area_trabajo">
+			<div class="formulario_datos_apartado">
+				<div class="datos_apartado">
+					<div class="form__group field">
+						<input type="text" form="add" required placeholder="Nombre"
+							class="form__field" id="nombre" name="nombre"> <label
+							class="form__label" for="name">DNI</label>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+					</div>
+				</div>
 
-          </div>
-          <div>
-              <h4>S&iacute;guenos</h4>
-              <center>
-                  <table>
-                      <tr>
-                          <td><img src="img/index/fb.png" alt="Logo de Facebook"></td>
-                          <td>
-                              <a href="https://www.facebook.com/">
-                                  <p style="color: black;">Facebook</p>
-                              </a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td><img src="img/index/ig.png" alt="Logo de Instagram"></td>
-                          </td>
-                          <td>
-                              <a href="https://www.instagram.com/">
-                                  <p style="color: black;">Instagram</p>
-                              </a>
-                          </td>
-                      </tr>
-                  </table>
-              </center>
-          </div>
-      </div>
-  </center>
-</footer>
+				<div class="datos_apartado">
+					<div class="etiqueta">
+						<p>Sedes:</p>
+					</div>
+					<div class="content-select">
+						<select class="menubtn2 mbtn" form="add" id="acceso" name="acceso">
+							<option>Administrador</option>
+							<option>Usuario</option>
+						</select>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" form="add">Buscar</button>
+					</div>
+				</div>
+			</div>
+			<div class="tabla_apartado">
+				<div class="table-wrapper">
+					<table class="fl-table">
+						<thead>
+							<tr>
+								<th>DNI</th>
+								<th>Nombre</th>
+								<th>Entrada</th>
+								<th>Salida</th>
+								<th>Sede</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="registro: ${registros}"
+								th:id="'row' + ${registro.idRegistro}">
+								<td th:text="${registro.cliente.dni}"></td>
+								<td th:text="${registro.cliente.nombre}"></td>
+								<td th:text="${registro.fechaEntrada}"></td>
+								<td th:text="${registro.fechaSalida}"></td>
+								<td th:text="${registro.sede.nombre}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
 </body>
 </html>

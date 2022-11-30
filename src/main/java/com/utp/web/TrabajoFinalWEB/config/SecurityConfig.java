@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +39,7 @@ public class SecurityConfig {
 				.antMatchers("/css/**", "/js/**", "/img/**")
 					.permitAll() 
 				.antMatchers()
-					.hasAnyRole("ADMIN","CLIENTE")
+					.hasAnyRole("EMPLEADO","CLIENTE")
 				.antMatchers("/", "/**/")
 					.permitAll()
 				.and()
@@ -47,6 +48,11 @@ public class SecurityConfig {
 					.loginPage("/login");
 		
         return http.build();
+    }
+	
+	@Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
     }
 	
 /*	@Override
