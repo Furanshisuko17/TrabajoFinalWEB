@@ -1166,3 +1166,67 @@ border:2px solid rgba(0,0,0,0.2);
 
 /* End Tabla */
 /* EndRegistros usuario y empleado */
+
+/* Pagos Pagina */
+
+.pagos-fondo{
+  background:url('../img/index/foto.jpg');
+  background-size: cover;
+}
+
+.pagos-form-register{
+  width: 400px;
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius:4px;
+  font-family: 'calibri';
+  color: white;
+}
+
+.pagos-form-register h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+
+}
+
+.pagos-controls{
+  width: 100%;
+  background:#24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: 'calibri';
+  font-size: 18px;
+  color:white; 
+}
+
+.pagos-form-register p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.pagos-form-register a{
+  color: white;
+  text-decoration: none;
+}
+
+.pagos-form-register a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.pagos-form-register .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+/* End Pagos Pagina */
