@@ -1171,7 +1171,8 @@ border:2px solid rgba(0,0,0,0.2);
 
 .pagos-fondo{
   background:url('../img/index/foto.jpg');
-  background-size: cover;
+  background-size: cover;    
+  padding: 18px 0px;
 }
 
 .pagos-form-register{
@@ -1179,7 +1180,6 @@ border:2px solid rgba(0,0,0,0.2);
   background: #24303c;
   padding: 30px;
   margin: auto;
-  margin-top: 100px;
   border-radius:4px;
   font-family: 'calibri';
   color: white;
