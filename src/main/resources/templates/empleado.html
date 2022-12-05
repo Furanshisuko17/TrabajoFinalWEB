@@ -13,8 +13,9 @@
 	<form hidden method="post" id="registroSalida" th:action="@{/registrarSalida}" >
 	</form>
 
-	<form hidden method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
+	<form  method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
 		<input type="number" form="registroEntrada" id="dni2" name="dni2" hidden>
+		<input type="number" form="registroEntrada" id="idsede" name="idsede" >
 	</form>
 
 
@@ -34,7 +35,7 @@
 					</td>
 					<td>
 						<h1>Sede</h1>
-						<select name="idsede" th:field="*{sede}" form="registroEntrada" id="idsede">
+						<select th:field="*{sede}" form="registroEntrada" id="sede" name="sede">
 							<option th:each="sede : ${sede}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
 						</select>
 					</td>

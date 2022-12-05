@@ -2,6 +2,7 @@ package com.utp.web.TrabajoFinalWEB.controllers;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
+import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
 import com.utp.web.TrabajoFinalWEB.services.ClientesService;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 import com.utp.web.TrabajoFinalWEB.services.SedeService;
@@ -55,15 +56,15 @@ public class EmpleadoController {
     }
 
     @RequestMapping(value = "/registrarEntrada", method = RequestMethod.POST)
-    public String registrarEntrada(Model model, @RequestParam(required = true, name = "dni2") String dni2,@RequestParam(required = false, name = "idsede") long idsede){
+    public String registrarEntrada(Model model, @RequestParam(required = true, name = "dni2") String dni2, @RequestParam(required = false, name = "idsede") Long idsede){
         if (registroService.encontrarRegistroSalida(dni2)==null){
-            Registro registro = null;
+            Registro registro = new Registro();
             registro.setFechaEntrada(new Timestamp(new Date().getTime()));
             registro.setSede(sedeService.encontrarSedeId(idsede));
             registro.setCliente(clientesService.encontrarCliente(dni2));
             registroService.guardar(registro);
         }else{
-            return "redirect:/empleado"; //Brayan cambialo por la cosa que querias XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd amanecidita xdxdxdxxdxdxdddXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            return "redirect:/usuario"; //Brayan cambialo por la cosa que querias XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd amanecidita xdxdxdxxdxdxdddXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         }
         return "redirect:/empleado";
     }

@@ -39,7 +39,7 @@ public class RegistroServiceImpl implements RegistroService {
     @Override
     @Transactional
     public void guardar(Registro registro) {
-
+        registroDao.save(registro);
     }
 
     @Override

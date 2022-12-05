@@ -36,8 +36,7 @@
 					<div class="usuario">
 						<label>Sede:</label><br>
 						<br> <select name="select" th:field="*{sede}">
-							<option th:each="sede : ${sedes}" th:value="${sede.idSede}"
-								th:text="${sede.nombre}"></option>
+							<option th:each="sede : ${sedes}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
 						</select>
 					</div>
 					<div class="usuario">
