@@ -14,10 +14,13 @@
 	</form>
 
 	<form hidden method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
-		<input type="number" form="registroEntrada" id="dni2" name="dni2" >
+		<input required type="number" form="registroEntrada" id="dni2" name="dni2" >
 		<input type="number" form="registroEntrada" id="idsede" name="idsede" >
 	</form>
 
+	<form hidden method="post" id="buscarPorDni" th:action="@{/informacionCliente}" >
+		<input required type="number" form="buscarPorDni" id="dni3" name="dni3" >
+	</form>
 
 	<main class="Empleado">
 		<center style="color: white;">
@@ -27,11 +30,11 @@
 			<table style="text-align: center;">
 				<tr>
 					<td style="padding-top: 40px;">
-						<button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
+						<button type="submit" class="menubtn3 mbtn" form="buscarPorDni">Buscar</button>
 					</td>
 					<td>
 						<h1>DNI</h1>
-						<input type="number" style="width: 200px; font-size: large; text-align: center;" form="registroSalida" id="dni" name="dni">
+						<input required type="number" style="width: 200px; font-size: large; text-align: center;" form="registroSalida" id="dni" name="dni">
 					</td>
 					<td>
 						<h1>Sede</h1>
@@ -68,12 +71,16 @@
 			<div class="fecha">
 				<p th:text="${mensaje}"></p>
 			</div>
+			<div class="fecha">
+				<p th:text="${mensaje2}"></p>
+			</div>
 			<div id="current_date" class="fecha">
 				</p>
 				<script>
 					document.getElementById("current_date").innerHTML = Date();
 				</script>
 			</div>
+		</div>
 	</main>
 
 	<footer th:replace="layout/footer_layout :: footer"></footer>

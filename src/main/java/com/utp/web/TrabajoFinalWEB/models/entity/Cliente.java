@@ -36,6 +36,9 @@ public class Cliente implements Serializable{
     @Column(nullable = false, length = 200)
     private String contrasena;
 
+    @Column(nullable = false, length = 250)
+    private String direccion;
+
     @OneToMany(mappedBy = "cliente")
     List<Registro> registros;
     

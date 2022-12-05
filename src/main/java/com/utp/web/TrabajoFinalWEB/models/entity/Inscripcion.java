@@ -47,7 +47,7 @@ public class Inscripcion implements Serializable {
     private String estado;
 
     @Column(nullable = false)
-    private Long diasInscripcion;
+    private Integer diasInscripcion;
 
     
 }

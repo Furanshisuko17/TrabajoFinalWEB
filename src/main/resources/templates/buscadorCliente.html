@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Portal empleado</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<nav th:replace="layout/header_layout :: nav"></nav>
+	<main class="Empleado">
+		<center style="color: white;">
+            <h2 class="fecha">Informacion del Cliente</h2>
+			<div style="display: grid; grid-template-columns: 1fr 1fr; padding: 1%;grid-gap: 25px 10px;">
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Nombre:</h3></div>
+                    <p class="fecha" th:text="${cliente.nombre}"></p>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Dni:</h3></div>
+                    <div class="fecha"><p th:text="${cliente.dni}"></p></div>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Telefono:</h3></div>
+                    <div class="fecha"><p th:text="${cliente.telefono}"></p></div>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Direccion:</h3></div>
+                    <div class="fecha"><p th:text="${cliente.direccion}"></p></div>
+                </div>
+            </div>
+            <hr>
+            <h2 class="fecha">Informacion de Membresia</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; padding: 1.4%;grid-gap: 25px 10px;">
+                <div style="grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Estado:</h3></div>
+                    <div class="fecha"><p th:text="${inscripcion.estado}"></p></div>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Plan:</h3></div>
+                    <div class="fecha"><p th:text="${inscripcion.plan.nombre}"></p></div>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Sede:</h3></div>
+                    <div class="fecha"><p th:text="${inscripcion.sede.nombre}"></p></div>
+                </div>
+                <div style="display: grid; grid-template-rows: 0.01fr 0.01fr">
+                    <div class="tituloingreso"><h3>Duracion membresia:</h3></div>
+                    <div class="fecha"><p th:text="${inscripcion.diasInscripcion}"></p></div>
+                </div>
+            </div>
+		</center>
+        <hr>
+        <br>
+        <center>
+            <div>
+                <a th:href="@{/empleado}"><button class="menubtn3 mbtn">Volver</button></a>
+            </div>
+        </center>
+        <br>
+	</main>
+
+	<footer th:replace="layout/footer_layout :: footer"></footer>
+
+</body>
+</html>

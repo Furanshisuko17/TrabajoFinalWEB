@@ -15,6 +15,6 @@ public interface InscripcionDao extends JpaRepository<Inscripcion, Long> {
 	
 	List<Inscripcion> findByClienteDniIn(List<Cliente> cliente);
 	
-	
+	Inscripcion findByCliente_Dni(String dni);
 	
 }

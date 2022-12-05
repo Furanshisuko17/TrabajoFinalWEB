@@ -35,5 +35,9 @@ public class InscripcionServiceImpl implements InscripcionService {
         return check != null;
     }
 
+    public Inscripcion encontrarInscripcionPorDni(String dni){
+        return inscripcionDao.findByCliente_Dni(dni);
+    }
+
 
 }
