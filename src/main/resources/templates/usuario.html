@@ -24,7 +24,7 @@
 						<tbody>
 							<tr th:each="registro: ${registros}"
 								th:id="'row' + ${registro.idRegistro}">
-								<td th:text="${registro.fechaEntrada}"></td>
+								<td th:text="${registro.fechaEntrada} ?:'Sin registro'"></td>
 								<td th:text="${registro.fechaSalida} ?:'Sin registro'"></td>
 								<td th:text="${registro.sede.nombre}"></td>
 							</tr>

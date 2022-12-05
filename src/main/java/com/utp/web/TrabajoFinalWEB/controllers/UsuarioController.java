@@ -1,5 +1,7 @@
 package com.utp.web.TrabajoFinalWEB.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,12 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
-
-import lombok.var;
 
 @Controller
 public class UsuarioController {
+	
+	@Autowired
+	private RegistroService registroService;
 
 	@Autowired
 	private RegistroService registroService;
@@ -31,11 +35,14 @@ public class UsuarioController {
 		}else{
 			dni= principal.toString();
 		}
-
-		var registros= registroService.listarporDni(dni);
+		
+		List<Registro> registros = registroService.listarporDni(dni);
+		
 		model.addAttribute("registros", registros);
 		
 		return "usuario";
 	}
+	
+	
 	
 }

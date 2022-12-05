@@ -1,5 +1,7 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +13,7 @@ import com.utp.web.TrabajoFinalWEB.services.ClientesService;
 
 @Service
 public class ClientesServiceImpl implements ClientesService {
+    
     @Autowired
     private ClienteDao clientesDao;
     
@@ -19,7 +22,8 @@ public class ClientesServiceImpl implements ClientesService {
     
     @Transactional(readOnly = true)
     public Cliente obtenerRegistros() {
-    	var cliente = clientesDao.findByRegistrosIn(registroDao.findAll());
+    	List<Cliente> cliente = clientesDao.findByRegistrosIn(registroDao.findAll());
     	return cliente;
     }
+
 }
