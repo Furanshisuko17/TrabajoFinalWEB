@@ -10,7 +10,7 @@
 	<nav th:fragment="nav">
 		<a th:href="@{/}" class="logo">
 			<div class="svg-logo-div">
-				<img src="img/Logo.svg" alt="Logo de Herculiano">
+				<img th:src="@{/img/Logo.svg}" alt="Logo de Herculiano">
 			</div>
 			<div class="title">Herculiano</div>
 		</a> <a th:href="@{/}">Inicio</a> <a
@@ -22,12 +22,12 @@
 
 		<a sec:authorize="isAnonymous()" th:href="@{/login}">
 			<div class="svg-user-div">
-				<img src="img/Iconos/Usuario.svg" alt="Icono de Usuario">
+				<img th:src="@{/img/Iconos/Usuario.svg}" alt="Icono de Usuario">
 			</div>
 		</a> <a sec:authorize="isAuthenticated()"
 			href="javascript: document.logoutForm.submit()" role="menuitem">
 			<div class="svg-user-div svg-logout">
-				<img src="img/Iconos/logout.svg" alt="Cerrar sesi&oacute;n">
+				<img th:src="@{/img/Iconos/logout.svg}" alt="Cerrar sesi&oacute;n">
 			</div>
 		</a>
 

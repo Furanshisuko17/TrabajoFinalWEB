@@ -22,11 +22,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="usuario: ${usuarios}"
-								th:id="'row' + ${usuario.idUsuario}">
-								<td th:text="${usuario.entrada}"></td>
-								<td th:text="${usuario.salida}"></td>
-								<td th:text="${usuario.sedes}"></td>
+							<tr th:each="registro: ${registros}"
+								th:id="'row' + ${registro.idRegistro}">
+								<td th:text="${registro.fechaEntrada}"></td>
+								<td th:text="${registro.fechaSalida} ?:'Sin registro'"></td>
+								<td th:text="${registro.sede.nombre}"></td>
 							</tr>
 						</tbody>
 					</table>
