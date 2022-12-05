@@ -1,6 +1,8 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +50,7 @@ public class RegistroServiceImpl implements RegistroService {
 
     @Override
     @Transactional(readOnly = true)
-    public Registro encontrarRegistroDNI(Cliente cliente, String dni) {
+    public Registro encontrarRegistroDNI(String dni) {
         List<Registro> rList = null;
         List<Registro> registroF = new ArrayList<>();
 
@@ -60,6 +62,11 @@ public class RegistroServiceImpl implements RegistroService {
         return (Registro) registroF;
     }
 
-
+    @Override
+    @Transactional(readOnly = true)
+    public Registro encontrarRegistroSalida(String dni){
+        Registro registro = registroDao.findByFechaSalidaAndCliente_Dni(null,dni);
+        return registro;
+    }
 
 }

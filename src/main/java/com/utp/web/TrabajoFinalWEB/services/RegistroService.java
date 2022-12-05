@@ -13,10 +13,12 @@ public interface RegistroService {
 
     public void eliminar(Registro registro);
 
-    public Registro encontrarRegistroDNI(Cliente cliente, String dni);
+    public Registro encontrarRegistroDNI(String dni);
 
     public List<Registro> listarporDni(String palabraclave);
 
     public List<Registro> listarporSede(Long palabraclave);
+
+    public Registro encontrarRegistroSalida(String dni);
 
 }

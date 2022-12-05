@@ -19,9 +19,6 @@ public class UsuarioController {
 	@Autowired
 	private RegistroService registroService;
 
-	@Autowired
-	private RegistroService registroService;
-
 	@GetMapping("/usuario")
 	public String mainUsuario(Model model) {
 		

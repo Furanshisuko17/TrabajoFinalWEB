@@ -26,4 +26,9 @@ public class SedeServiceImpl implements SedeService {
 		return sedeDao.findById(sede.getIdSede()).orElse(null);
 	}
 
+	@Transactional(readOnly = true)
+	public Sede encontrarSedeId(Long id) {
+		return sedeDao.findById(id).orElse(null);
+	}
+
 }

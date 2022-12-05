@@ -6,4 +6,6 @@ public interface ClientesService {
 	
 	Cliente obtenerRegistros();
 
+	public Cliente encontrarCliente(String dni);
+
 }

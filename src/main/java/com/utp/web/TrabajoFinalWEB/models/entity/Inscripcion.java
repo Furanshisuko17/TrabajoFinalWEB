@@ -48,10 +48,9 @@ public class Inscripcion implements Serializable {
     @NotNull
     @Column(nullable = false)
     private String estado;
-    
-    @CreationTimestamp
+
     @Column(nullable = false)
-    private Timestamp fechaInscripcion;
+    private Long diasInscripcion;
 
     
 }

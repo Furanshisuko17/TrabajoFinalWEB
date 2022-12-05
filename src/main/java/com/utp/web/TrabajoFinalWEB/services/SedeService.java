@@ -10,5 +10,7 @@ public interface SedeService {
 	public List<Sede> listarSedes();
 	
 	public Sede encontrarSede(Sede sede);
+
+	public Sede encontrarSedeId(Long id);
 	
 }

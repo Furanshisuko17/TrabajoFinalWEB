@@ -22,8 +22,14 @@ public class ClientesServiceImpl implements ClientesService {
     
     @Transactional(readOnly = true)
     public Cliente obtenerRegistros() {
-    	List<Cliente> cliente = clientesDao.findByRegistrosIn(registroDao.findAll());
+    	var cliente = clientesDao.findByRegistrosIn(registroDao.findAll());
     	return cliente;
+    }
+
+    @Transactional(readOnly = true)
+    public Cliente encontrarCliente(String dni) {
+        var cliente = clientesDao.findByDni(dni);
+        return cliente;
     }
 
 }

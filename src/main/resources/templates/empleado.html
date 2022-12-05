@@ -5,9 +5,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
+<script type='text/javascript' src="js/gestion.js"></script>
 </head>
 <body>
 	<nav th:replace="layout/header_layout :: nav"></nav>
+
+	<form hidden method="post" id="registroSalida" th:action="@{/registrarSalida}" >
+	</form>
+
+	<form hidden method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
+		<input type="number" form="registroEntrada" id="dni2" name="dni2" hidden>
+	</form>
+
 
 	<main class="Empleado">
 		<center style="color: white;">
@@ -20,14 +29,14 @@
 						<button type="submit" class="menubtn3 mbtn" form="add">Buscar</button>
 					</td>
 					<td>
-						<h1>DNI</h1> <input type="number"
-						style="width: 200px; font-size: large; text-align: center;">
+						<h1>DNI</h1>
+						<input type="number" style="width: 200px; font-size: large; text-align: center;" form="registroSalida" id="dni" name="dni">
 					</td>
 					<td>
-						<h1>Sede</h1> <select name="select" th:field="*{sede}">
-							<option th:each="sede : ${sede}" th:value="${sede.idSede}"
-								th:text="${sede.nombre}"></option>
-					</select>
+						<h1>Sede</h1>
+						<select name="idsede" th:field="*{sede}" form="registroEntrada" id="idsede">
+							<option th:each="sede : ${sede}" th:value="${sede.idSede}" th:text="${sede.nombre}"></option>
+						</select>
 					</td>
 				</tr>
 			</table>
@@ -38,7 +47,7 @@
 					<div class="textosp">
 						<h3 class="tituloingreso">INGRESO</h3>
 
-						<button class="btnsedes">
+						<button class="btnsedes" type="submit" form="registroEntrada">
 							<span>Registrar</span>
 						</button>
 					</div>
@@ -48,9 +57,10 @@
 					<div class="textosp">
 						<h3 class="tituloingreso">SALIDA</h3>
 
-						<button class="btnsedes">
+						<button class="btnsedes" type="submit" form="registroSalida">
 							<span>Registrar</span>
 						</button>
+
 					</div>
 				</div>
 			</div>
