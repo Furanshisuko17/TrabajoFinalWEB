@@ -21,4 +21,6 @@ public interface RegistroService {
 
     public Registro encontrarRegistroSalida(String dni);
 
+    public boolean existeRegistroSalida(String dni);
+
 }

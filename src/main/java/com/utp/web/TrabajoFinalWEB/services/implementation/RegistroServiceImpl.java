@@ -69,4 +69,10 @@ public class RegistroServiceImpl implements RegistroService {
         return registro;
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existeRegistroSalida(String dni){
+        return registroDao.existsByFechaSalidaAndCliente_Dni(null,dni);
+    }
+
 }

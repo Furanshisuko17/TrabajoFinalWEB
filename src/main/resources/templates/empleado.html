@@ -13,8 +13,8 @@
 	<form hidden method="post" id="registroSalida" th:action="@{/registrarSalida}" >
 	</form>
 
-	<form  method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
-		<input type="number" form="registroEntrada" id="dni2" name="dni2" hidden>
+	<form hidden method="post" id="registroEntrada" th:action="@{/registrarEntrada}" >
+		<input type="number" form="registroEntrada" id="dni2" name="dni2" >
 		<input type="number" form="registroEntrada" id="idsede" name="idsede" >
 	</form>
 
@@ -64,6 +64,9 @@
 
 					</div>
 				</div>
+			</div>
+			<div class="fecha">
+				<p th:text="${mensaje}"></p>
 			</div>
 			<div id="current_date" class="fecha">
 				</p>

@@ -16,6 +16,7 @@ import com.utp.web.TrabajoFinalWEB.services.EmpleadoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -48,23 +49,36 @@ public class EmpleadoController {
     }
 
     @RequestMapping(value = "/registrarSalida", method = RequestMethod.POST)
-    public String registroSalida(Model model, @RequestParam(required = true, name = "dni") String dni){
-        var registro = registroService.encontrarRegistroSalida(dni);
-        registro.setFechaSalida(new Timestamp(new Date().getTime()));
-        registroService.guardar(registro);
+    public String registroSalida(Model model, @RequestParam(required = true, name = "dni") String dni, RedirectAttributes redirectAttributes){
+        if (registroService.existeRegistroSalida(dni)){
+            var registro = registroService.encontrarRegistroSalida(dni);
+            registro.setFechaSalida(new Timestamp(new Date().getTime()));
+            registroService.guardar(registro);
+
+            String mensaje ="Se registro correctamente su salida";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
+        }else{
+            String mensaje ="No existe un ingreso al cual regitrar salida";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
+        }
+        
         return "redirect:/empleado";
     }
 
     @RequestMapping(value = "/registrarEntrada", method = RequestMethod.POST)
-    public String registrarEntrada(Model model, @RequestParam(required = true, name = "dni2") String dni2, @RequestParam(required = false, name = "idsede") Long idsede){
-        if (registroService.encontrarRegistroSalida(dni2)==null){
+    public String registrarEntrada(Model model, @RequestParam(required = true, name = "dni2") String dni2, @RequestParam(required = false, name = "idsede") Long idsede,RedirectAttributes redirectAttributes){
+        if (!registroService.existeRegistroSalida(dni2)){
             Registro registro = new Registro();
             registro.setFechaEntrada(new Timestamp(new Date().getTime()));
             registro.setSede(sedeService.encontrarSedeId(idsede));
             registro.setCliente(clientesService.encontrarCliente(dni2));
             registroService.guardar(registro);
+
+            String mensaje ="Se registro correctamente su entrada";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
         }else{
-            return "redirect:/usuario"; //Brayan cambialo por la cosa que querias XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd amanecidita xdxdxdxxdxdxdddXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            String mensaje ="Al usuario le falta registrar una salida anterior";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
         }
         return "redirect:/empleado";
     }

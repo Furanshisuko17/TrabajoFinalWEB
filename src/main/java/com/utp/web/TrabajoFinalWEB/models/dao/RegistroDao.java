@@ -19,5 +19,7 @@ public interface RegistroDao extends JpaRepository<Registro, Long> {
     public List<Registro> findBySede_idSede(Long idSede);
 
     public Registro findByFechaSalidaAndCliente_Dni(Timestamp fechaS, String dni);
+    
+    public boolean existsByFechaSalidaAndCliente_Dni(Timestamp fechaS, String dni);
 
 }
