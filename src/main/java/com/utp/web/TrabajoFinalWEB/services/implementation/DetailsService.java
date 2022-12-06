@@ -16,8 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.ClienteDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.EmpleadoDao;
+import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
 import com.utp.web.TrabajoFinalWEB.models.entity.Empleado;
+import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
+import com.utp.web.TrabajoFinalWEB.services.InscripcionService;
+import com.utp.web.TrabajoFinalWEB.util.ClienteUserDetails;
 
 @Service
 @Transactional
@@ -25,6 +29,9 @@ public class DetailsService implements UserDetailsService {
 
 	@Autowired
 	private ClienteDao clienteDao;
+	
+	@Autowired
+	private InscripcionService inscripcionService;
 
 	@Autowired
 	private EmpleadoDao empleadoDao;
@@ -35,9 +42,13 @@ public class DetailsService implements UserDetailsService {
 		boolean foundEmpleado = true;
 
 		Cliente cliente = clienteDao.findByDni(dni);
-
+		
+		Inscripcion inscripcion = null;
+		
 		if (cliente == null) {
 			foundCliente = false;
+		} else {
+			inscripcion = inscripcionService.encontrarInscripcionPorDni(dni);
 		}
 
 		Empleado empleado = empleadoDao.findByDni(dni);
@@ -57,24 +68,30 @@ public class DetailsService implements UserDetailsService {
 
 		// Si es cliente y empleado a la vez
 		if (foundCliente && foundEmpleado) {
-			return new User(empleado.getDni(), empleado.getContrasena(), enabled, accountNonExpired,
+			ClienteUserDetails user =  new ClienteUserDetails(empleado.getDni(), empleado.getContrasena(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,
 					getAuthorities(Arrays.asList("ROLE_CLIENTE", "ROLE_EMPLEADO")));
+			user.setCliente(cliente);
+			user.setInscripcion(inscripcion);
+			return user;
 		}
 		// Si es solo cliente
 		if (foundCliente) {
-			return new User(cliente.getDni(), cliente.getContrasena(), enabled, accountNonExpired,
+			ClienteUserDetails user =  new ClienteUserDetails(cliente.getDni(), cliente.getContrasena(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,
 					getAuthorities(Arrays.asList("ROLE_CLIENTE")));
+			user.setCliente(cliente);
+			user.setInscripcion(inscripcion);
+			return user;
 		}
 		// Si es solo empleado
 		if (foundEmpleado) {
-			return new User(empleado.getDni(), empleado.getContrasena(), enabled, accountNonExpired,
+			return new ClienteUserDetails(empleado.getDni(), empleado.getContrasena(), enabled, accountNonExpired,
 					credentialsNonExpired, accountNonLocked,
 					getAuthorities(Arrays.asList("ROLE_EMPLEADO")));
 		}
 		
-		return new User(null, null, null);
+		return new ClienteUserDetails(null, null, null);
 	}
 
 	private static List<GrantedAuthority> getAuthorities(List<String> roles) {

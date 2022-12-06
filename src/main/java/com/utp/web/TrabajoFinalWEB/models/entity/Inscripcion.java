@@ -53,8 +53,7 @@ public class Inscripcion implements Serializable {
     @Column(nullable = false)
     private Timestamp fechaInscripcion;
     
-    @CreationTimestamp
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Timestamp fechaUltimoPago;
 
     

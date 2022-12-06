@@ -23,4 +23,6 @@ public interface InscripcionDao extends JpaRepository<Inscripcion, Long> {
 
 	List<Inscripcion> findByPlan_idPlanAndSede_idSede(Long idPlan, Long idSede);
 	
+	Inscripcion findFirstByCliente_DniOrderByFechaInscripcionDesc(String dni);
+	
 }

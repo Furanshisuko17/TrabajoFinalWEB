@@ -18,17 +18,15 @@ public class SecurityConfig {
 	@Autowired
 	private UserDetailsService detailsService;
 	
-	@Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         
         authProvider.setUserDetailsService(detailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setPasswordEncoder(passwordEncoder);
         
         return authProvider;
     }

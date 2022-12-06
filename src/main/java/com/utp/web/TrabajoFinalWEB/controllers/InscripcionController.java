@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.utp.web.TrabajoFinalWEB.exception.FoundClientActiveMembershipException;
+import com.utp.web.TrabajoFinalWEB.exception.FoundClientInactiveMembershipException;
 import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
@@ -40,8 +42,13 @@ public class InscripcionController {
     public String inscribirCliente(Inscripcion inscripcion, RedirectAttributes redirectAttributes) {
     	try {
 			Inscripcion insc = inscripcionService.registerNewUserAccount(inscripcion);
-		} catch(Exception e) {
+		} catch(FoundClientActiveMembershipException e) {
 			redirectAttributes.addFlashAttribute("error", "El cliente ya se encuentra registrado.");
+			
+			return "redirect:/inscripcion";
+			
+		} catch (FoundClientInactiveMembershipException e){
+			redirectAttributes.addFlashAttribute("error", "El cliente ya se encuentra registrado, si desea renovar su membresía puede hacerlo desde la página de pagos después de iniciar sesión.");
 			
 			return "redirect:/inscripcion";
 			
