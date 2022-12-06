@@ -66,11 +66,11 @@ public class EmpleadoController {
             String mensaje ="Se registro correctamente su salida";
             redirectAttributes.addFlashAttribute("mensaje", mensaje);
 
-            Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni);
-            String mensaje2= "Al cliente le quedan "+inscripcion.getDiasInscripcion()+" dias de membresia";
+            // Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni);
+            String mensaje2= "Al cliente le quedan "+-1+" dias de membresia";
             redirectAttributes.addFlashAttribute("mensaje2", mensaje2);
         }else{
-            String mensaje ="No existe un ingreso al cual regitrar salida";
+            String mensaje ="No existe un ingreso al cual registrar salida";
             redirectAttributes.addFlashAttribute("mensaje", mensaje);
         }
         
@@ -89,8 +89,8 @@ public class EmpleadoController {
             String mensaje ="Se registro correctamente su entrada";
             redirectAttributes.addFlashAttribute("mensaje", mensaje);
 
-            Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni2);
-            String mensaje2= "Al cliente le quedan "+inscripcion.getDiasInscripcion()+" dias de membresia";
+            // Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni2);
+            String mensaje2= "Al cliente le quedan "+-1+" dias de membresia";
             redirectAttributes.addFlashAttribute("mensaje2", mensaje2);
         }else{
             String mensaje ="Al usuario le falta registrar una salida anterior";
