@@ -12,10 +12,18 @@ public interface InscripcionService {
 
 	public Inscripcion encontrarInscripcionPorDni(String dni);
 	
-	public List<Inscripcion> filtrarInscripciones(Long idPlan);
+	public List<Inscripcion> filtrarInscripcionesPlan(Long idPlan);
 	
 	public List<Inscripcion> filtrarInscripcionesSede(Long idSede);
 
-	public List<Inscripcion> filtrarInscripcionesPor(Long idPlan,Long idSede);
+	public List<Inscripcion> filtrarInscripcionesEstado(String estado);
+
+	public List<Inscripcion> filtrarInscripcionesPyS(Long idPlan,Long idSede);
+
+	public List<Inscripcion> filtrarInscripcionesPyE(Long idPlan,String estado);
+
+	public List<Inscripcion> filtrarInscripcionesSyE(Long idSede,String estado);
+
+	public List<Inscripcion> filtrarInscripcionesPySyE(Long idPlan,Long idSede,String estado);
 	
 }

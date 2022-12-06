@@ -91,7 +91,7 @@ public class InscripcionServiceImpl implements InscripcionService {
 	}
 
 	@Transactional(readOnly = true)
-    public List<Inscripcion> filtrarInscripciones(Long idPlan){
+    public List<Inscripcion> filtrarInscripcionesPlan(Long idPlan){
         return inscripcionDao.findByPlan_idPlan(idPlan);
     }
     
@@ -101,9 +101,28 @@ public class InscripcionServiceImpl implements InscripcionService {
     }
 
 	@Transactional(readOnly = true)
-	public List<Inscripcion> filtrarInscripcionesPor(Long idPlan,Long idSede){
+	public List<Inscripcion> filtrarInscripcionesEstado(String estado){
+        return inscripcionDao.findByEstado(estado);
+    }
+
+	@Transactional(readOnly = true)
+	public List<Inscripcion> filtrarInscripcionesPyS(Long idPlan,Long idSede){
         return inscripcionDao.findByPlan_idPlanAndSede_idSede(idPlan, idSede);
     }
 
+	@Transactional(readOnly = true)
+	public List<Inscripcion> filtrarInscripcionesPyE(Long idPlan,String estado){
+        return inscripcionDao.findByPlan_idPlanAndEstado(idPlan, estado);
+    }
+
+	@Transactional(readOnly = true)
+	public List<Inscripcion> filtrarInscripcionesSyE(Long idSede,String estado){
+        return inscripcionDao.findBySede_idSedeAndEstado(idSede, estado);
+    }
+
+	@Transactional(readOnly = true)
+	public List<Inscripcion> filtrarInscripcionesPySyE(Long idPlan,Long idSede,String estado){
+        return inscripcionDao.findByPlan_idPlanAndSede_idSedeAndEstado(idPlan, idSede, estado);
+    }
 
 }

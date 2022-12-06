@@ -43,30 +43,81 @@ public class ClientesController {
     }
 
 
-    @GetMapping("/buscador1")
-    public String buscador1(@Param("planb1") Long planb1,RedirectAttributes redirectAttributes){
+    @GetMapping("/filtradorCliente")
+    public String filtradorCliente(@Param("planfiltrar") Long planfiltrar,@Param("sedefiltrar") Long sedefiltrar,@Param("estadofiltrar") Long estadofiltrar,RedirectAttributes redirectAttributes){
 
-        var inscripciones= inscripcionService.filtrarInscripciones(planb1);
-        redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
-
-        return "redirect:/clientes";
-    }
-
-    @GetMapping("/buscador2")
-    public String buscador2(@Param("sedeb2") Long sedeb2,RedirectAttributes redirectAttributes){
-
-        var inscripciones= inscripcionService.filtrarInscripcionesSede(sedeb2);
-        redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
-
-        return "redirect:/clientes";
-    }
-
-    @GetMapping("/buscador3")
-    public String buscador3(@Param("planb3") Long planb3,@Param("sedeb3") Long sedeb3,RedirectAttributes redirectAttributes){
-
-        var inscripciones= inscripcionService.filtrarInscripcionesPor(planb3, sedeb3);
-        redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
-
+        if(planfiltrar==null && sedefiltrar==null && estadofiltrar==null){
+            var inscripciones= inscripcionService.listarInscripciones();
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar!=null && sedefiltrar==null && estadofiltrar==null){
+            var inscripciones= inscripcionService.filtrarInscripcionesPlan(planfiltrar);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar==null && sedefiltrar!=null && estadofiltrar==null){
+            var inscripciones= inscripcionService.filtrarInscripcionesSede(sedefiltrar);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar==null && sedefiltrar==null && estadofiltrar!=null){
+            String estado="";
+            if(estadofiltrar==1){
+                estado= "Activo";
+            }
+            if(estadofiltrar==2){
+                estado= "Suspendido";
+            }
+            if(estadofiltrar==3){
+                estado= "Cancelado";
+            }
+            var inscripciones= inscripcionService.filtrarInscripcionesEstado(estado);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar!=null && sedefiltrar!=null && estadofiltrar==null){
+            var inscripciones= inscripcionService.filtrarInscripcionesPyS(planfiltrar, sedefiltrar);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar!=null && sedefiltrar==null && estadofiltrar!=null){
+            String estado="";
+            if(estadofiltrar==1){
+                estado= "Activo";
+            }
+            if(estadofiltrar==2){
+                estado= "Suspendido";
+            }
+            if(estadofiltrar==3){
+                estado= "Cancelado";
+            }
+            var inscripciones= inscripcionService.filtrarInscripcionesPyE(planfiltrar, estado);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar==null && sedefiltrar!=null && estadofiltrar!=null){
+            String estado="";
+            if(estadofiltrar==1){
+                estado= "Activo";
+            }
+            if(estadofiltrar==2){
+                estado= "Suspendido";
+            }
+            if(estadofiltrar==3){
+                estado= "Cancelado";
+            }
+            var inscripciones= inscripcionService.filtrarInscripcionesSyE(sedefiltrar, estado);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
+        if(planfiltrar!=null && sedefiltrar!=null && estadofiltrar!=null){
+            String estado="";
+            if(estadofiltrar==1){
+                estado= "Activo";
+            }
+            if(estadofiltrar==2){
+                estado= "Suspendido";
+            }
+            if(estadofiltrar==3){
+                estado= "Cancelado";
+            }
+            var inscripciones= inscripcionService.filtrarInscripcionesPySyE(planfiltrar, sedefiltrar, estado);
+            redirectAttributes.addFlashAttribute("inscripciones", inscripciones);
+        }
         return "redirect:/clientes";
     }
 }

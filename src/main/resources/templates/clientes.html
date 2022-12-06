@@ -13,15 +13,10 @@
 	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main>
 
-		<form hidden id="buscador1" th:action="@{/buscador1}">
-			<input required form="buscador1" type="number" id="planb1" name="planb1">
-        </form>
-		<form hidden id="buscador2" th:action="@{/buscador2}">
-			<input required form="buscador2" type="number" id="sedeb2" name="sedeb2">
-        </form>
-		<form hidden id="buscador3" th:action="@{/buscador3}">
-			<input  required form="buscador3" type="number" id="planb3" name="planb3">
-			<input  required form="buscador3" type="number" id="sedeb3" name="sedeb3">
+		<form hidden id="filtradorCliente" th:action="@{/filtradorCliente}">
+			<input form="filtradorCliente" type="number" id="planfiltrar" name="planfiltrar">
+			<input form="filtradorCliente" type="number" id="sedefiltrar" name="sedefiltrar">
+			<input form="filtradorCliente" type="number" id="estadofiltrar" name="estadofiltrar">
         </form>
 
 		<div class="area_trabajo">
@@ -37,9 +32,6 @@
 								th:text="${plan.nombre}"></option>
 						</select>
 					</div>
-					<div class="botones_apartado">
-						<button type="submit" form="buscador1" class="menubtn2 mbtn">Buscar</button>
-					</div>
 				</div>
 
 				<div class="datos_apartado">
@@ -53,16 +45,24 @@
 								th:text="${sede.nombre}"></option>
 						</select>
 					</div>
-					<div class="botones_apartado">
-						<button type="submit" form="buscador2" class="menubtn2 mbtn">Buscar</button>
-					</div>
 				</div>
 				<div class="datos_apartado">
-					<div class="botones_apartado">
-						<button type="submit" form="buscador3" class="menubtn2 mbtn">Buscar Ambos</button>
+					<div class="etiqueta">
+						<p>Estado:</p>
+					</div>
+					<div class="content-select">
+						<select id="estado" name="estado">
+							<option selected disabled hidden>Elige</option>
+							<option value='1'>Activo</option>
+							<option value='2'>Suspendido</option>
+							<option value='3'>Cancelado</option>
+						</select>
 					</div>
 					<div class="botones_apartado">
-						<button type="submit" class="menubtn2 mbtn" onclick="location.href='/darclientes';" >Limpiar</button>
+						<button type="submit" form="filtradorCliente" class="menubtn2 mbtn">Filtrar</button>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" onclick="location.href='/darclientes';">Limpiar</button>
 					</div>
 				</div>
 			</div>
