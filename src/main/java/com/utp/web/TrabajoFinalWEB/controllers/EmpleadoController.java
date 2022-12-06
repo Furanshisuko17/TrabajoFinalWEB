@@ -6,6 +6,8 @@ import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
 import com.utp.web.TrabajoFinalWEB.services.ClientesService;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 import com.utp.web.TrabajoFinalWEB.services.SedeService;
+import com.utp.web.TrabajoFinalWEB.util.DateUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,6 +58,12 @@ public class EmpleadoController {
         return "/empleado";
     }
 
+    @RequestMapping(value = "/regresarEmpleado", method = RequestMethod.POST)
+    public String regresarEmpleado(@RequestParam(required = true, name = "dni") String dni, RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("dni", dni);
+        return "redirect:/empleado";
+    }
+
     @RequestMapping(value = "/registrarSalida", method = RequestMethod.POST)
     public String registroSalida(Model model, @RequestParam(required = true, name = "dni") String dni, RedirectAttributes redirectAttributes){
         if (registroService.existeRegistroSalida(dni)){
@@ -66,8 +74,10 @@ public class EmpleadoController {
             String mensaje ="Se registro correctamente su salida";
             redirectAttributes.addFlashAttribute("mensaje", mensaje);
 
-            // Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni);
-            String mensaje2= "Al cliente le quedan "+-1+" dias de membresia";
+            
+            Inscripcion inscripcionEncontrada = inscripcionService.encontrarInscripcionPorDni(dni);
+            Long diasFaltantes= DateUtils.obtenerDiasRestantes(inscripcionEncontrada);
+            String mensaje2= "Al cliente le quedan "+diasFaltantes+" dias de membresia";
             redirectAttributes.addFlashAttribute("mensaje2", mensaje2);
         }else{
             String mensaje ="No existe un ingreso al cual registrar salida";
@@ -89,8 +99,9 @@ public class EmpleadoController {
             String mensaje ="Se registro correctamente su entrada";
             redirectAttributes.addFlashAttribute("mensaje", mensaje);
 
-            // Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni2);
-            String mensaje2= "Al cliente le quedan "+-1+" dias de membresia";
+            Inscripcion inscripcionEncontrada = inscripcionService.encontrarInscripcionPorDni(dni2);
+            Long diasFaltantes= DateUtils.obtenerDiasRestantes(inscripcionEncontrada);
+            String mensaje2= "Al cliente le quedan "+diasFaltantes+" dias de membresia";
             redirectAttributes.addFlashAttribute("mensaje2", mensaje2);
         }else{
             String mensaje ="Al usuario le falta registrar una salida anterior";
@@ -105,7 +116,9 @@ public class EmpleadoController {
         model.addAttribute("cliente", cliente);
         Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni3);
         model.addAttribute("inscripcion", inscripcion);
-        
+        Long diasFaltantes= DateUtils.obtenerDiasRestantes(inscripcion);
+        model.addAttribute("diasFaltantes", diasFaltantes);
+
         return "/buscadorCliente";
     }
 }

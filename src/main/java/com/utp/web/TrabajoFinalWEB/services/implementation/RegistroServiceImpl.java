@@ -60,6 +60,12 @@ public class RegistroServiceImpl implements RegistroService {
             }
         }
         return (Registro) registroF;
+     }
+
+    @Override
+    @Transactional(readOnly= true)
+    public Registro encontrarunRegistroDNI(String dni){
+        return registroDao.encontrarUnRegistro(dni);
     }
 
     @Override
