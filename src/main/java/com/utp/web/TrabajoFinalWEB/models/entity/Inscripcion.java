@@ -1,6 +1,7 @@
 package com.utp.web.TrabajoFinalWEB.models.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Data;
 
@@ -46,8 +49,13 @@ public class Inscripcion implements Serializable {
     @Column(nullable = false)
     private String estado;
 
+    @CreationTimestamp
     @Column(nullable = false)
-    private Integer diasInscripcion;
+    private Timestamp fechaInscripcion;
+    
+    @CreationTimestamp
+    @Column(nullable = false)
+    private Timestamp fechaUltimoPago;
 
     
 }
