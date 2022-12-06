@@ -16,5 +16,11 @@ public interface InscripcionDao extends JpaRepository<Inscripcion, Long> {
 	List<Inscripcion> findByClienteDniIn(List<Cliente> cliente);
 	
 	Inscripcion findByCliente_Dni(String dni);
+
+	List<Inscripcion> findByPlan_idPlan(Long idPlan);
+
+	List<Inscripcion> findBySede_idSede(Long idSede);
+
+	List<Inscripcion> findByPlan_idPlanAndSede_idSede(Long idPlan, Long idSede);
 	
 }

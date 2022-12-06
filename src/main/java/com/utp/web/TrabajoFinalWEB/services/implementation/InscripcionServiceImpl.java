@@ -1,6 +1,7 @@
 package com.utp.web.TrabajoFinalWEB.services.implementation;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class InscripcionServiceImpl implements InscripcionService {
 	
 	@Autowired
 	private ClienteDao clienteDao;
+
+    public List<Inscripcion> listarInscripciones(){
+        return inscripcionDao.findAll();
+    }
 	
 	//TODO: incorporar verificación de empleado
 	public Inscripcion registerNewUserAccount(Inscripcion inscripcion) throws Exception {
@@ -37,6 +42,18 @@ public class InscripcionServiceImpl implements InscripcionService {
 
     public Inscripcion encontrarInscripcionPorDni(String dni){
         return inscripcionDao.findByCliente_Dni(dni);
+    }
+
+    public List<Inscripcion> filtrarInscripciones(Long idPlan){
+        return inscripcionDao.findByPlan_idPlan(idPlan);
+    }
+	
+	public List<Inscripcion> filtrarInscripcionesSede(Long idSede){
+        return inscripcionDao.findBySede_idSede(idSede);
+    }
+
+	public List<Inscripcion> filtrarInscripcionesPor(Long idPlan,Long idSede){
+        return inscripcionDao.findByPlan_idPlanAndSede_idSede(idPlan, idSede);
     }
 
 

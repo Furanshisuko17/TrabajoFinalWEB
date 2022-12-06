@@ -48,7 +48,7 @@ public class SecurityConfig {
 					.permitAll() 
 				.antMatchers("/usuario")
 					.hasRole("CLIENTE")
-				.antMatchers("/empleado", "/gestion", "/registros")
+				.antMatchers("/empleado", "/clientes" , "/registros")
 					.hasRole("EMPLEADO")
 				.and()
 					.formLogin()

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
-<script type='text/javascript' src="js/registros.js"></script>
+<script type='text/javascript' src="js/cliente.js"></script>
 <title>Gym Herculiano</title>
 </head>
 <body class="back2gym">
@@ -13,10 +13,15 @@
 
 	<main>
 
-		<form hidden  id="buscador1" th:action="@{/registros}">
+		<form hidden id="buscador1" th:action="@{/buscador1}">
+			<input required form="buscador1" type="number" id="planb1" name="planb1">
         </form>
-		<form  id="buscador2" th:action="@{/registros}">
-			<input hidden form="buscador2" type="number" id="sed" name="sed" th:value="${sed}">
+		<form hidden id="buscador2" th:action="@{/buscador2}">
+			<input required form="buscador2" type="number" id="sedeb2" name="sedeb2">
+        </form>
+		<form hidden id="buscador3" th:action="@{/buscador3}">
+			<input  required form="buscador3" type="number" id="planb3" name="planb3">
+			<input  required form="buscador3" type="number" id="sedeb3" name="sedeb3">
         </form>
 
 		<div class="area_trabajo">
@@ -33,7 +38,7 @@
 						</select>
 					</div>
 					<div class="botones_apartado">
-						<button type="submit" form="buscador2" class="menubtn2 mbtn">Buscar</button>
+						<button type="submit" form="buscador1" class="menubtn2 mbtn">Buscar</button>
 					</div>
 				</div>
 
@@ -52,45 +57,43 @@
 						<button type="submit" form="buscador2" class="menubtn2 mbtn">Buscar</button>
 					</div>
 				</div>
-        <div class="datos_apartado">
-          <div class="botones_apartado">
-            <button type="submit" form="buscador2" class="menubtn2 mbtn">Buscar Ambos</button>
-          </div>
-        </div>
-
 				<div class="datos_apartado">
 					<div class="botones_apartado">
-						<button type="submit" class="menubtn2 mbtn" onclick="location.href='/registros';" >Limpiar</button>
+						<button type="submit" form="buscador3" class="menubtn2 mbtn">Buscar Ambos</button>
+					</div>
+					<div class="botones_apartado">
+						<button type="submit" class="menubtn2 mbtn" onclick="location.href='/darclientes';" >Limpiar</button>
 					</div>
 				</div>
 			</div>
 
-			<!-- <div class="tabla_apartado">
+			<div class="tabla_apartado">
 				<div class="table-wrapper">
 					<table class="fl-table">
 						<thead>
 							<tr>
 								<th>DNI</th>
 								<th>Nombre</th>
-                <th>Planes</th>
-								<th>Entrada</th>
-								<th>Salida</th>
+								<th>Telefono</th>
+                				<th>Plan</th>
 								<th>Sede</th>
+								<th>Estado</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="registro: ${registros}"
-								th:id="'row' + ${registro.idRegistro}">
-								<td th:text="${registro.cliente.dni}"></td>
-								<td th:text="${registro.cliente.nombre}"></td>
-								<td th:text="${registro.fechaEntrada} ?:'Sin registro'"></td>
-								<td th:text="${registro.fechaSalida} ?:'Sin registro'"></td>
-								<td th:text="${registro.sede.nombre}"></td>
+							<tr th:each="inscripcion: ${inscripciones}"
+								th:id="'row' + ${inscripcion.idInscripcion}">
+								<td th:text="${inscripcion.cliente.dni}"></td>
+								<td th:text="${inscripcion.cliente.nombre}"></td>
+								<td th:text="${inscripcion.cliente.telefono}"></td>
+								<td th:text="${inscripcion.plan.nombre}"></td>
+								<td th:text="${inscripcion.sede.nombre}"></td>
+								<td th:text="${inscripcion.estado}"></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</main>
 	<br>

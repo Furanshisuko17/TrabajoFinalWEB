@@ -17,6 +17,7 @@
 			sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/usuario}">Usuario</a>
 		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/empleado}">Gestión</a>
 		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/registros}">Registros</a>
+		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/darclientes}">Clientes</a>
 
 		<a th:href="@{/servicios}">Servicios</a> <a th:href="@{/sedes}">Sedes</a>
 

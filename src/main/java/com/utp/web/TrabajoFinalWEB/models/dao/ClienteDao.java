@@ -12,5 +12,6 @@ public interface ClienteDao extends JpaRepository<Cliente, Long> {
 	Cliente findByRegistrosIn(List<Registro> registros);
 	
 	Cliente findByDni(String dni);
+	
 		
 }

@@ -19,6 +19,12 @@ public class ClientesServiceImpl implements ClientesService {
     
     @Autowired 
     private RegistroDao registroDao;
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Cliente> listarClientes() {
+        return clientesDao.findAll();
+    }
     
     @Transactional(readOnly = true)
     public Cliente obtenerRegistros() {
