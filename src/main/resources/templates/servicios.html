@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav th:replace="layout/header_layout :: nav"></nav>
-
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main>
 		<h1 class="servicios-title">Disfruta de nuestras variedades de
 			servicios!!!</h1>

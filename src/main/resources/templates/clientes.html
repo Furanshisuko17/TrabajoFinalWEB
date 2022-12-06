@@ -10,7 +10,7 @@
 </head>
 <body class="back2gym">
 	<nav th:replace="layout/header_layout :: nav"></nav>
-
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main>
 
 		<form hidden id="buscador1" th:action="@{/buscador1}">

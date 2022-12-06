@@ -28,6 +28,9 @@ public class Plan implements Serializable {
     @Column(nullable = false)
     private String nombre;
     
+    @Column(nullable = true)
+    private String nombreCorto;
+    
     @NotNull
     @Column(nullable = false, length = 500)
     private String descripcion;

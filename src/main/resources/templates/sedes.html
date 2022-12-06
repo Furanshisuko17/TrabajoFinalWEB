@@ -11,7 +11,7 @@
 
 <body class="backgym">
 	<nav th:replace="layout/header_layout :: nav"></nav>
-
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main>
 		<div class="contenedor">
 

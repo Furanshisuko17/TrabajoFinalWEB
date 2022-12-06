@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav th:replace="layout/header_layout :: nav"></nav>
-
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main class="fondo_sedes">
 		<div class="contenedor_sedes">
 			<div class="area_informacion">

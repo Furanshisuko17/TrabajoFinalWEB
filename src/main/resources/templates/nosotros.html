@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav th:replace="layout/header_layout :: nav"></nav>
-
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
 	<main>
 		<div class="nosotros-fondo">
 			<h1 class="nosotros-title">Herculiano, Bienvenidos al Gym</h1>

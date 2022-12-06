@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
-
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
+	lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,20 +12,20 @@
 			<div class="svg-logo-div">
 				<img th:src="@{/img/Logo.svg}" alt="Logo de Herculiano">
 			</div>
-			<div class="title">Herculiano</div>
-		</a> <a th:href="@{/}">Inicio</a> <a
-			sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/usuario}">Usuario</a>
-		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/empleado}">Gestión</a>
-		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/registros}">Registros</a>
-		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/darclientes}">Clientes</a>
+			<div class="title"> Herculiano</div>
+		</a> 
+		<a class="nav-transition" th:href="@{/}">Inicio</a> 
+		
+		<a class="nav-transition" th:href="@{/servicios}">Servicios</a> 
+		
+		<a class="nav-transition" th:href="@{/sedes}">Sedes</a>
 
-		<a th:href="@{/servicios}">Servicios</a> <a th:href="@{/sedes}">Sedes</a>
-
-		<a sec:authorize="isAnonymous()" th:href="@{/login}">
+		<a class="nav-transition" sec:authorize="isAnonymous()" th:href="@{/login}">
 			<div class="svg-user-div">
 				<img th:src="@{/img/Iconos/Usuario.svg}" alt="Icono de Usuario">
 			</div>
-		</a> <a sec:authorize="isAuthenticated()"
+		</a> 
+		<a class="nav-transition" sec:authorize="isAuthenticated()"
 			href="javascript: document.logoutForm.submit()" role="menuitem">
 			<div class="svg-user-div svg-logout">
 				<img th:src="@{/img/Iconos/logout.svg}" alt="Cerrar sesi&oacute;n">
@@ -37,6 +37,47 @@
 			<input hidden="true" type="submit" value="Sign Out" />
 		</form>
 	</nav>
-
+	
+	<div th:fragment="subnav" class="sub-nav">
+		
+		<div class="user-info" sec:authorize="hasRole('ROLE_CLIENTE')" >
+			Nombre: <span th:text="${#authentication.getPrincipal().getCliente().getNombre()}"></span>
+		</div>
+		
+		<div th:if="${#authentication.getPrincipal().getEstadoMembresia()}" sec:authorize="hasRole('ROLE_CLIENTE')" 
+        		style="border-left: 2.5px solid #fff;
+   				height: 22px;
+			    margin: 0px 5px;
+			    border-radius: 13px;"></div>
+		
+		<div th:if="${#authentication.getPrincipal().getEstadoMembresia()}" class="user-info" sec:authorize="hasRole('ROLE_CLIENTE')" >
+			Membres&iacute;a:
+			 <span th:text="${#authentication.getPrincipal().getDiasRestantes()}"></span>
+			 d&iacute;as
+		</div>
+		
+		<div th:if="${#authentication.getPrincipal().getEstadoMembresia()}" sec:authorize="hasRole('ROLE_CLIENTE')" 
+        		style="border-left: 2.5px solid #fff;
+   				height: 22px;
+			    margin: 0px 5px;
+			    border-radius: 13px;"></div>
+		
+		<div th:if="${#authentication.getPrincipal().getEstadoMembresia()}" class="user-info" sec:authorize="hasRole('ROLE_CLIENTE')" >
+			Plan: <span th:text="${#authentication.getPrincipal().getInscripcion().getPlan().getNombreCorto()}"></span>
+		</div>
+		
+        <div style="margin-left:auto;"></div>
+        
+        <a  sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/usuario}">Usuario</a>
+        <a  sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/pagos}">Pagos</a>
+        <div sec:authorize="hasRole('ROLE_CLIENTE') and hasRole('ROLE_EMPLEADO')" 
+        		style="border-left: 3px solid #fff;
+   				height: 34px;
+			    margin: 0px 5px;
+			    border-radius: 13px;"></div>
+		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/empleado}">Gestión</a>
+		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/registros}">Registros</a>
+		<a sec:authorize="hasRole('ROLE_EMPLEADO')" th:href="@{/darclientes}">Clientes</a>
+    </div>
 </body>
 </html>

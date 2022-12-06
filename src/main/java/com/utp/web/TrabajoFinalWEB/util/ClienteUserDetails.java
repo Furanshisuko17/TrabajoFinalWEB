@@ -44,6 +44,29 @@ public class ClienteUserDetails extends User {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	public Long getDiasRestantes() {
+		return DateUtils.obtenerDiasRestantes(inscripcion);
+	}
 
+	public boolean getEstadoMembresia() {
+		if(inscripcion == null) {
+			return false;
+		}
+		if (inscripcion.getEstado().equalsIgnoreCase("cancelado")
+				|| inscripcion.getEstado().equalsIgnoreCase("suspendido")) {
+			return false;
+		}
+		
+		if (inscripcion.getFechaUltimoPago() == null) {
+			return false;
+		}
+		
+		if (!DateUtils.verificarMembresia(inscripcion)) {
+			return false;
+		}
+		
+		return true;
+	}
 	
 }

@@ -14,9 +14,9 @@ public class DateUtils {
 	 * False si la membresía debería estar suspendida(límite de 30 dias)
 	 * True si sigue activa(dentro del rango)
 	 */
-	public static boolean verificarMembresia(Inscripcion previousInscripcion) {
+	public static boolean verificarMembresia(Inscripcion inscripcion) {
 		// la fecha limite es desde la fecha de ultimo pago + 30 dias
-		LocalDateTime fechaLimite = timestampToLocalDateTime(previousInscripcion.getFechaUltimoPago()).plusDays(30L);
+		LocalDateTime fechaLimite = timestampToLocalDateTime(inscripcion.getFechaUltimoPago()).plusDays(30L);
 		LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
 		Duration diff = Duration.between(now, fechaLimite);
 		if (diff.toSeconds() <= 0) {
@@ -24,6 +24,13 @@ public class DateUtils {
 		} else {
 			return true;
 		}
+	}
+	
+	public static long obtenerDiasRestantes(Inscripcion inscripcion) {
+		LocalDateTime fechaLimite = timestampToLocalDateTime(inscripcion.getFechaUltimoPago()).plusDays(30L);
+		LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
+		Duration diff = Duration.between(now, fechaLimite);
+		return diff.toDays();
 	}
 	
 	/*

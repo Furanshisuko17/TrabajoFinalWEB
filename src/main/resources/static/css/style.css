@@ -4,6 +4,8 @@
 :root {
   --main-color: #e7d28a;
   --main-viewport: calc(100vw - 5px);
+  --secondary-hover-color: hsl(0, 0%, 31%);
+  --secondary-selected-color: hsl(0, 0%, 15%);
 }
 
 * {
@@ -51,8 +53,19 @@ nav .logo {
   display: flex;
   align-items: center;
   font-size: 3.2rem;
-
   padding: 0px;
+}
+
+nav .nav-transition{
+    transition: background-color 200ms ease-out 0ms
+}
+
+nav .nav-transition:hover {
+    background-color: #b3a36b;
+}
+
+nav .nav-transition:active {
+    background-color: #665d3d;
 }
 
 .logo .svg-logo-div {
@@ -96,9 +109,46 @@ nav a {
   text-align: center;
   font-size: 1.5rem;
   color: black;
+  height: 69px;
+  display: flex;
+  align-items: center;
 }
 
 /* fin nav */
+
+/* sub-nav */
+.sub-nav{
+    display:flex;
+    align-items: center;
+    max-height:40px;
+    padding:0px 20px;
+    background-color:#303030;    
+}
+
+.sub-nav .user-info {
+	color: white;
+	padding: 0px 10px;
+	
+}
+
+.sub-nav a {
+    color:white;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    padding:11px 15px 10px;
+    transition: background-color 200ms ease-out 0ms;
+}
+
+.sub-nav a:hover {
+    background-color: var(--secondary-hover-color);
+}
+
+.sub-nav a:active {
+    background-color: var(--secondary-selected-color);
+}
+
+/* end sub-nav */
 
 /* main: cuerpo principal */
 

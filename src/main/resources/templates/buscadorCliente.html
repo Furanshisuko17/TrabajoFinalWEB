@@ -8,6 +8,8 @@
 </head>
 <body>
 	<nav th:replace="layout/header_layout :: nav"></nav>
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
+	
 	<main class="Empleado">
 		<center style="color: white;">
             <h2 class="fecha">Informacion del Cliente</h2>
