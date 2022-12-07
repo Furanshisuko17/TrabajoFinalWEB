@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.utp.web.TrabajoFinalWEB.models.dao.RegistroDao;
-import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
 import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 

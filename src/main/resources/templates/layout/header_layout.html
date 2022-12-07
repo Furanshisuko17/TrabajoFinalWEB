@@ -69,7 +69,7 @@
         <div style="margin-left:auto;"></div>
         
         <a  sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/usuario}">Usuario</a>
-        <a  sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/pagos}">Pagos</a>
+        <a  sec:authorize="hasRole('ROLE_CLIENTE')" th:href="@{/historialPagos}">Pagos</a>
         <div sec:authorize="hasRole('ROLE_CLIENTE') and hasRole('ROLE_EMPLEADO')" 
         		style="border-left: 3px solid #fff;
    				height: 34px;

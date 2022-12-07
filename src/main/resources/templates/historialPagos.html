@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Historial de Pagos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="backgym">
+	<nav th:replace="layout/header_layout :: nav"></nav>
+	<div th:replace="layout/header_layout:: subnav" sec:authorize="isAuthenticated()"></div>
+	<main>
+		<div class="area_trabajo">
+			<div class="tabla_apartado">
+				<div class="table-wrapper">
+					<table class="fl-table">
+						<thead>
+							<tr>
+								<th>Fecha</th>
+								<th>Importe</th>
+								<th>Plan</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="registroPago: ${registroPagos}"
+								th:id="'row' + ${registroPago.idRegistroPago}">
+								<td th:text="${registroPago.fecha}"></td>
+								<td th:text="${registroPago.importe}"></td>
+								<td th:text="${registroPago.plan.nombre}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer th:replace="layout/footer_layout :: footer"></footer>
+
+</body>
+</html>
