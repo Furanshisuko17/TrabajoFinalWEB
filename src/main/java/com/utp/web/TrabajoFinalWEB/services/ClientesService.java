@@ -8,8 +8,10 @@ public interface ClientesService {
 	
 	public List<Cliente> listarClientes();
 
-	Cliente obtenerRegistros();
+	public Cliente obtenerRegistros();
 
 	public Cliente encontrarCliente(String dni);
+	
+	public boolean existeClientePorDni(String dni);
 
 }

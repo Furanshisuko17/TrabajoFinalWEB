@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.utp.web.TrabajoFinalWEB.exception.FoundClientActiveMembershipException;
 import com.utp.web.TrabajoFinalWEB.models.entity.RegistroPago;
+import com.utp.web.TrabajoFinalWEB.services.ClientesService;
 import com.utp.web.TrabajoFinalWEB.services.RegistroPagoService;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 
@@ -23,6 +24,9 @@ public class PagosController {
 	@Autowired
 	private RegistroPagoService registroPagoService;
 
+	@Autowired
+	private ClientesService clienteService;
+	
     @GetMapping("/pagos")
     public String pagosMainPage(Model model){
     	RegistroPago registroPago = new RegistroPago();
@@ -32,6 +36,11 @@ public class PagosController {
     
     @PostMapping("/pagar")
     public String pagar(RegistroPago registroPago, Model model, RedirectAttributes redirectAttributes){
+    	
+    	if(clienteService.existeClientePorDni(registroPago.getCliente().getDni())) {
+    		redirectAttributes.addFlashAttribute("msg", "El cliente no existe.");
+			return "redirect:/pagos";
+    	}
     	try {
 			registroPagoService.registrarPago(registroPago);
 		} catch (FoundClientActiveMembershipException e) {

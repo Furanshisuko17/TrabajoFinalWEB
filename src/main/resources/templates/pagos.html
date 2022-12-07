@@ -14,7 +14,7 @@
     <section class="pagos-form-register">
         <center><h4>PAGOS</h4></center>
         <form id="pago" method="POST" th:object="${registroPago}" th:action="@{/pagar}">
-	        <input class="pagos-controls" type="text" th:field="*{cliente.dni}" placeholder="DNI">
+	        <input required class="pagos-controls" type="text" th:field="*{cliente.dni}" placeholder="DNI">
 	        
 	        <p style="text-align: left;font-size: 20px;height: 30px;">Plan: </p>
 	        

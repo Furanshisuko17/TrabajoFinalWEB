@@ -38,4 +38,11 @@ public class ClientesServiceImpl implements ClientesService {
         return cliente;
     }
 
+	@Override
+	@Transactional(readOnly = true)
+	public boolean existeClientePorDni(String dni) {
+		return clientesDao.existsByDni(dni);
+ 
+	}
+
 }

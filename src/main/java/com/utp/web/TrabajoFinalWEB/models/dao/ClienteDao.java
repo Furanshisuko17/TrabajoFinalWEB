@@ -13,5 +13,6 @@ public interface ClienteDao extends JpaRepository<Cliente, Long> {
 	
 	Cliente findByDni(String dni);
 	
+	boolean existsByDni(String dni);
 		
 }
