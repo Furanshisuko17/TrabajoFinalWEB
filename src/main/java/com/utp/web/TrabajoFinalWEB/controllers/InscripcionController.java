@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -14,6 +15,7 @@ import com.utp.web.TrabajoFinalWEB.exception.FoundClientInactiveMembershipExcept
 import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.SedeDao;
 import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
+import com.utp.web.TrabajoFinalWEB.models.entity.Sede;
 import com.utp.web.TrabajoFinalWEB.services.implementation.InscripcionServiceImpl;
 
 @Controller
@@ -35,6 +37,20 @@ public class InscripcionController {
     	var sedes = sedeDao.findAll();
     	model.addAttribute("sedes", sedes);
         return "inscripcion";
+    }
+    
+    @GetMapping ("/inscripcion/{id}")
+    public String inscripcionMainPage(Model model, @PathVariable Long id){
+    	Inscripcion inscripcion = new Inscripcion();
+    	model.addAttribute("inscripcion", inscripcion);
+    	var sedes = sedeDao.findAll();
+    	model.addAttribute("sedes", sedes);
+    	System.out.println(id);
+    	Sede sede = new Sede();
+    	sede.setIdSede(id);
+    	inscripcion.setSede(sede);
+        return "inscripcion";
+        
     }
     
     
