@@ -9,21 +9,39 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.utp.web.TrabajoFinalWEB.exception.FoundClientActiveMembershipException;
 import com.utp.web.TrabajoFinalWEB.models.entity.RegistroPago;
 import com.utp.web.TrabajoFinalWEB.services.RegistroPagoService;
+import com.utp.web.TrabajoFinalWEB.services.RegistroService;
 
 @Controller
 public class PagosController {
+	
+	@Autowired
+	private RegistroPagoService registroPagoService;
 
-    @Autowired
-    private RegistroPagoService registroPagoService;
-
-    @GetMapping ("/pagos")
+    @GetMapping("/pagos")
     public String pagosMainPage(Model model){
+    	RegistroPago registroPago = new RegistroPago();
+    	model.addAttribute("registroPago", registroPago);
         return "pagos";
     }
-
+    
+    @PostMapping("/pagar")
+    public String pagar(RegistroPago registroPago, Model model, RedirectAttributes redirectAttributes){
+    	try {
+			registroPagoService.registrarPago(registroPago);
+		} catch (FoundClientActiveMembershipException e) {
+			redirectAttributes.addFlashAttribute("msg", "La membresía del cliente seleccionado sigue activa.");
+			return "redirect:/pagos";
+		}
+    	redirectAttributes.addFlashAttribute("msg", "Pago exitoso.");
+    	return "redirect:/pagos";
+    }
+    
     @GetMapping ("/historialPagos")
     public String historialpagosMainPage(Model model){
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();

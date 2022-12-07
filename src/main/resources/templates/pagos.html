@@ -13,28 +13,24 @@
   <div class="pagos-fondo">
     <section class="pagos-form-register">
         <center><h4>PAGOS</h4></center>
-        <input class="pagos-controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
-        <input class="pagos-controls" type="number" name="DNI" id="DNI" placeholder="DNI">
-        <input class="pagos-controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo">
-        <p>Seleccione el tipo de plan que tiene</p>
-        <input type="radio" id="op1" name="radio">
-        <label for="opcional1">Standar</label><br>
-        <input type="radio" id="op2" name="radio">
-        <label for="opcional2">Pro</label><br>
-        <input type="radio" id="op3" name="radio">
-        <label for="opcional3">Herculiano</label><br><br>
-        <input class="pagos-controls" type="number" name="pago" id="pago" placeholder="Ingrese el monto a pagar">
-        <label for="date">Fecha de inscripcion</label><br><br>
-        <input type="date" name="fecha" id="date"><br><br>  
-
-        
-        <label for="checkbox">Desea informacion sobre su pago realizado</label>
-        <input type="checkbox" name="" id="checkbox">
-
-        <input class="botons" type="submit" value="Buscar">
-
-        <input class="botons" type="submit" value="Renovar plan">
-        
+        <form id="pago" method="POST" th:object="${registroPago}" th:action="@{/pagar}">
+	        <input class="pagos-controls" type="text" th:field="*{cliente.dni}" placeholder="DNI">
+	        
+	        <p style="text-align: left;font-size: 20px;height: 30px;">Plan: </p>
+	        
+	        <select name="select" th:field="*{plan}">
+				<option name="plan" value="1" >Plan Standard - S/. 69.90</option>
+				<option name="plan" value="2" selected>Plan Pro - S/. 99.90</option>
+				<option name="plan" value="3">Plan Herculiano - S/. 169.90</option>
+			</select>
+					<br>
+	        	               
+	        <input class="botons" type="submit" value="Renovar plan">
+        </form>
+        <div style="color: white; padding-top: 15px; text-align: center"
+			th:if="${msg != null}">
+			<p th:text="${msg}"></p>
+		</div>
     </section>
   </div>
   <footer th:replace="layout/footer_layout :: footer"></footer>

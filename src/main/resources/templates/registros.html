@@ -39,7 +39,7 @@
 					<div class="content-select">
 						<select id="sede" name="sede">
 							<option selected disabled hidden>Elige la Sede</option>
-							<option th:each="sede : ${sedes}" th:selected="${sedeSeleccionada==sede.idSede}" th:value="${sede.idSede}"
+							<option th:each="sede : ${sedes}" th:selected="${sedeSeleccionada == sede.idSede}" th:value="${sede.idSede}"
 								th:text="${sede.nombre}"></option>
 						</select>
 					</div>
