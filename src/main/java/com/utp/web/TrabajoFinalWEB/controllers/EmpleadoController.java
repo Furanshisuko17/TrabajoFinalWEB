@@ -66,6 +66,10 @@ public class EmpleadoController {
 
     @RequestMapping(value = "/registrarSalida", method = RequestMethod.POST)
     public String registroSalida(Model model, @RequestParam(required = true, name = "dni") String dni, RedirectAttributes redirectAttributes){
+        if(!clientesService.existeClientePorDni(dni)) {
+    		redirectAttributes.addFlashAttribute("mensaje", "No se encontro el cliente");
+			return "redirect:/empleado";
+    	}
         if (registroService.existeRegistroSalida(dni)){
             var registro = registroService.encontrarRegistroSalida(dni);
             registro.setFechaSalida(new Timestamp(new Date().getTime()));

@@ -37,7 +37,7 @@ public class PagosController {
     @PostMapping("/pagar")
     public String pagar(RegistroPago registroPago, Model model, RedirectAttributes redirectAttributes){
     	
-    	if(clienteService.existeClientePorDni(registroPago.getCliente().getDni())) {
+    	if(!clienteService.existeClientePorDni(registroPago.getCliente().getDni())) {
     		redirectAttributes.addFlashAttribute("msg", "El cliente no existe.");
 			return "redirect:/pagos";
     	}
