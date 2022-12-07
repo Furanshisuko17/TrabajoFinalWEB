@@ -9,15 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.utp.web.TrabajoFinalWEB.exception.FoundClientInactiveMembershipException;
+import com.utp.web.TrabajoFinalWEB.models.dao.InscripcionDao;
 import com.utp.web.TrabajoFinalWEB.models.dao.RegistroDao;
+import com.utp.web.TrabajoFinalWEB.models.entity.Cliente;
+import com.utp.web.TrabajoFinalWEB.models.entity.Inscripcion;
 import com.utp.web.TrabajoFinalWEB.models.entity.Registro;
 import com.utp.web.TrabajoFinalWEB.services.RegistroService;
+import com.utp.web.TrabajoFinalWEB.util.DateUtils;
 
 @Service
 public class RegistroServiceImpl implements RegistroService {
 
     @Autowired
     private RegistroDao registroDao;
+    @Autowired
+    private InscripcionDao inscripcionDao;
 
     @Override
     @Transactional(readOnly = true)
@@ -39,6 +46,34 @@ public class RegistroServiceImpl implements RegistroService {
     @Transactional
     public void guardar(Registro registro) {
         registroDao.save(registro);
+    }
+
+    @Override
+    @Transactional
+    public boolean verificarMembresia(Cliente cliente) {
+        Inscripcion previousInscripcion = inscripcionDao
+					.findFirstByCliente_DniOrderByFechaInscripcionDesc(cliente.getDni());
+
+        if(previousInscripcion.getFechaUltimoPago() == null) {
+            return false;
+        }
+        
+        if(previousInscripcion.getEstado().equalsIgnoreCase("activo")) {
+            boolean isActivo = DateUtils.verificarMembresia(previousInscripcion);
+            if(!isActivo) {
+                previousInscripcion.setEstado("Suspendido");
+                inscripcionDao.save(previousInscripcion);
+                return false;
+            }
+         }
+        switch (previousInscripcion.getEstado().toLowerCase()) {
+            case "cancelado":
+            case "suspendido":
+                return false;
+            case "activo":
+                return true;
+        }
+        return false;
     }
 
     @Override
