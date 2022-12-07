@@ -16,7 +16,11 @@ public class DateUtils {
 	 */
 	public static boolean verificarMembresia(Inscripcion inscripcion) {
 		// la fecha limite es desde la fecha de ultimo pago + 30 dias
-		LocalDateTime fechaLimite = timestampToLocalDateTime(inscripcion.getFechaUltimoPago()).plusDays(30L);
+		Timestamp ultimoPago = inscripcion.getFechaUltimoPago();
+		if (ultimoPago == null ) {
+			return false;
+		}
+		LocalDateTime fechaLimite = timestampToLocalDateTime(ultimoPago).plusDays(30L);
 		LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
 		Duration diff = Duration.between(now, fechaLimite);
 		if (diff.toSeconds() <= 0) {
