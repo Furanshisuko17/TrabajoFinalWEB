@@ -89,11 +89,22 @@ public class EmpleadoController {
 
     @RequestMapping(value = "/registrarEntrada", method = RequestMethod.POST)
     public String registrarEntrada(Model model, @RequestParam(required = true, name = "dni2") String dni2, @RequestParam(required = false, name = "idsede") Long idsede,RedirectAttributes redirectAttributes){
+        Cliente cliente= clientesService.encontrarCliente(dni2);
+        if(cliente== null){
+            String mensaje ="No se encontro el cliente";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
+            return "redirect:/empleado";
+        }
+        if(!registroService.verificarMembresia(cliente)){
+            String mensaje ="La membresia se encuentra inactiva";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
+            return "redirect:/empleado";
+        }
         if (!registroService.existeRegistroSalida(dni2)){
             Registro registro = new Registro();
             registro.setFechaEntrada(new Timestamp(new Date().getTime()));
             registro.setSede(sedeService.encontrarSedeId(idsede));
-            registro.setCliente(clientesService.encontrarCliente(dni2));
+            registro.setCliente(cliente);
             registroService.guardar(registro);
 
             String mensaje ="Se registro correctamente su entrada";
@@ -111,13 +122,23 @@ public class EmpleadoController {
     }
 
     @PostMapping("/informacionCliente")
-    public String informacionMainPage(Model model, @RequestParam(required = true, name = "dni3") String dni3){
+    public String informacionMainPage(Model model, @RequestParam(required = true, name = "dni3") String dni3, RedirectAttributes redirectAttributes){
         Cliente cliente= clientesService.encontrarCliente(dni3);
+        if(cliente== null){
+            String mensaje ="No se encontro el cliente";
+            redirectAttributes.addFlashAttribute("mensaje", mensaje);
+            return "redirect:/empleado";
+        }
         model.addAttribute("cliente", cliente);
         Inscripcion inscripcion= inscripcionService.encontrarInscripcionPorDni(dni3);
         model.addAttribute("inscripcion", inscripcion);
-        Long diasFaltantes= DateUtils.obtenerDiasRestantes(inscripcion);
-        model.addAttribute("diasFaltantes", diasFaltantes);
+        if(inscripcion.getEstado().equalsIgnoreCase("Activo")){
+            Long diasFaltantes= DateUtils.obtenerDiasRestantes(inscripcion);
+            model.addAttribute("diasFaltantes", diasFaltantes);
+        }else{
+            model.addAttribute("diasFaltantes", "--");
+        }
+        
 
         return "/buscadorCliente";
     }
